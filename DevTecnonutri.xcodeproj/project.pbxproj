@@ -55,13 +55,45 @@
 			isa = PBXGroup;
 			children = (
 				2B9510BE1E01625E001AAEC1 /* AppDelegate.swift */,
-				2B9510C01E01625E001AAEC1 /* ViewController.swift */,
-				2B9510C21E01625E001AAEC1 /* Main.storyboard */,
-				2B9510C51E01625E001AAEC1 /* Assets.xcassets */,
-				2B9510C71E01625E001AAEC1 /* LaunchScreen.storyboard */,
-				2B9510CA1E01625E001AAEC1 /* Info.plist */,
+				2B9510D11E0169F8001AAEC1 /* view */,
+				2B9510D21E016A01001AAEC1 /* presenter */,
+				2B9510D01E0169F4001AAEC1 /* model */,
+				2B9510D31E016A08001AAEC1 /* TargetFiles */,
 			);
 			path = DevTecnonutri;
+			sourceTree = "<group>";
+		};
+		2B9510D01E0169F4001AAEC1 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		2B9510D11E0169F8001AAEC1 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				2B9510C01E01625E001AAEC1 /* ViewController.swift */,
+				2B9510C21E01625E001AAEC1 /* Main.storyboard */,
+				2B9510C71E01625E001AAEC1 /* LaunchScreen.storyboard */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		2B9510D21E016A01001AAEC1 /* presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = presenter;
+			sourceTree = "<group>";
+		};
+		2B9510D31E016A08001AAEC1 /* TargetFiles */ = {
+			isa = PBXGroup;
+			children = (
+				2B9510C51E01625E001AAEC1 /* Assets.xcassets */,
+				2B9510CA1E01625E001AAEC1 /* Info.plist */,
+			);
+			name = TargetFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
