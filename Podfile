@@ -7,5 +7,6 @@ target 'DevTecnonutri' do
 
   # Pods for DevTecnonutri
   pod 'Alamofire', '~> 4.0'
+  pod 'SwiftyJSON'
   pod 'SDWebImage', '~>3.8'
 end
