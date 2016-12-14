@@ -12,9 +12,12 @@
 		2B9510C41E01625E001AAEC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B9510C21E01625E001AAEC1 /* Main.storyboard */; };
 		2B9510C61E01625E001AAEC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B9510C51E01625E001AAEC1 /* Assets.xcassets */; };
 		2B9510C91E01625E001AAEC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B9510C71E01625E001AAEC1 /* LaunchScreen.storyboard */; };
+		EA6FC99CDDBC8F107EC7038E /* Pods_DevTecnonutri.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E97C86C084C81A810B89711 /* Pods_DevTecnonutri.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E97C86C084C81A810B89711 /* Pods_DevTecnonutri.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DevTecnonutri.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		26787862D3AA7CBD2B1CEF85 /* Pods-DevTecnonutri.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevTecnonutri.release.xcconfig"; path = "Pods/Target Support Files/Pods-DevTecnonutri/Pods-DevTecnonutri.release.xcconfig"; sourceTree = "<group>"; };
 		2B9510BB1E01625E001AAEC1 /* DevTecnonutri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevTecnonutri.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B9510BE1E01625E001AAEC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B9510C01E01625E001AAEC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		2B9510C51E01625E001AAEC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B9510C81E01625E001AAEC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B9510CA1E01625E001AAEC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B31D7F33A35E47301B3EC657 /* Pods-DevTecnonutri.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevTecnonutri.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DevTecnonutri/Pods-DevTecnonutri.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA6FC99CDDBC8F107EC7038E /* Pods_DevTecnonutri.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		084846DB94258FDA2C0FD119 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B31D7F33A35E47301B3EC657 /* Pods-DevTecnonutri.debug.xcconfig */,
+				26787862D3AA7CBD2B1CEF85 /* Pods-DevTecnonutri.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		0C58F9D98C8BF98EC9366B5D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1E97C86C084C81A810B89711 /* Pods_DevTecnonutri.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2B9510B21E01625E001AAEC1 = {
 			isa = PBXGroup;
 			children = (
 				2B9510BD1E01625E001AAEC1 /* DevTecnonutri */,
 				2B9510BC1E01625E001AAEC1 /* Products */,
+				084846DB94258FDA2C0FD119 /* Pods */,
+				0C58F9D98C8BF98EC9366B5D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,9 +127,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B9510CD1E01625E001AAEC1 /* Build configuration list for PBXNativeTarget "DevTecnonutri" */;
 			buildPhases = (
+				ACA5E76FE33788291C9BD131 /* [CP] Check Pods Manifest.lock */,
 				2B9510B71E01625E001AAEC1 /* Sources */,
 				2B9510B81E01625E001AAEC1 /* Frameworks */,
 				2B9510B91E01625E001AAEC1 /* Resources */,
+				994AE57445516A191D40BF49 /* [CP] Embed Pods Frameworks */,
+				DD10D8F3F9869ECDE52D6C3F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -162,6 +189,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		994AE57445516A191D40BF49 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DevTecnonutri/Pods-DevTecnonutri-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ACA5E76FE33788291C9BD131 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DD10D8F3F9869ECDE52D6C3F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DevTecnonutri/Pods-DevTecnonutri-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2B9510B71E01625E001AAEC1 /* Sources */ = {
@@ -290,6 +365,7 @@
 		};
 		2B9510CE1E01625E001AAEC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B31D7F33A35E47301B3EC657 /* Pods-DevTecnonutri.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DevTecnonutri/Info.plist;
@@ -302,6 +378,7 @@
 		};
 		2B9510CF1E01625E001AAEC1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26787862D3AA7CBD2B1CEF85 /* Pods-DevTecnonutri.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DevTecnonutri/Info.plist;
