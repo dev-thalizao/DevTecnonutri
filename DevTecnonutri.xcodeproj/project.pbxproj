@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		2B9510BF1E01625E001AAEC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9510BE1E01625E001AAEC1 /* AppDelegate.swift */; };
-		2B9510C11E01625E001AAEC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9510C01E01625E001AAEC1 /* ViewController.swift */; };
 		2B9510C41E01625E001AAEC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B9510C21E01625E001AAEC1 /* Main.storyboard */; };
 		2B9510C61E01625E001AAEC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B9510C51E01625E001AAEC1 /* Assets.xcassets */; };
 		2B9510C91E01625E001AAEC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B9510C71E01625E001AAEC1 /* LaunchScreen.storyboard */; };
+		2B9510DB1E016B60001AAEC1 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9510DA1E016B60001AAEC1 /* FeedViewController.swift */; };
+		2B9510DE1E016CBF001AAEC1 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9510DC1E016CBF001AAEC1 /* FeedTableViewCell.swift */; };
+		2B9510DF1E016CBF001AAEC1 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B9510DD1E016CBF001AAEC1 /* FeedTableViewCell.xib */; };
 		EA6FC99CDDBC8F107EC7038E /* Pods_DevTecnonutri.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E97C86C084C81A810B89711 /* Pods_DevTecnonutri.framework */; };
 /* End PBXBuildFile section */
 
@@ -20,11 +22,13 @@
 		26787862D3AA7CBD2B1CEF85 /* Pods-DevTecnonutri.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevTecnonutri.release.xcconfig"; path = "Pods/Target Support Files/Pods-DevTecnonutri/Pods-DevTecnonutri.release.xcconfig"; sourceTree = "<group>"; };
 		2B9510BB1E01625E001AAEC1 /* DevTecnonutri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevTecnonutri.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B9510BE1E01625E001AAEC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2B9510C01E01625E001AAEC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2B9510C31E01625E001AAEC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2B9510C51E01625E001AAEC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B9510C81E01625E001AAEC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B9510CA1E01625E001AAEC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B9510DA1E016B60001AAEC1 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		2B9510DC1E016CBF001AAEC1 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		2B9510DD1E016CBF001AAEC1 /* FeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
 		B31D7F33A35E47301B3EC657 /* Pods-DevTecnonutri.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevTecnonutri.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DevTecnonutri/Pods-DevTecnonutri.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +86,7 @@
 				2B9510D11E0169F8001AAEC1 /* view */,
 				2B9510D21E016A01001AAEC1 /* presenter */,
 				2B9510D01E0169F4001AAEC1 /* model */,
+				2B9510E01E016D02001AAEC1 /* service */,
 				2B9510D31E016A08001AAEC1 /* TargetFiles */,
 			);
 			path = DevTecnonutri;
@@ -97,9 +102,11 @@
 		2B9510D11E0169F8001AAEC1 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				2B9510C01E01625E001AAEC1 /* ViewController.swift */,
+				2B9510DC1E016CBF001AAEC1 /* FeedTableViewCell.swift */,
+				2B9510DD1E016CBF001AAEC1 /* FeedTableViewCell.xib */,
 				2B9510C21E01625E001AAEC1 /* Main.storyboard */,
 				2B9510C71E01625E001AAEC1 /* LaunchScreen.storyboard */,
+				2B9510DA1E016B60001AAEC1 /* FeedViewController.swift */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -118,6 +125,13 @@
 				2B9510CA1E01625E001AAEC1 /* Info.plist */,
 			);
 			name = TargetFiles;
+			sourceTree = "<group>";
+		};
+		2B9510E01E016D02001AAEC1 /* service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B9510C91E01625E001AAEC1 /* LaunchScreen.storyboard in Resources */,
+				2B9510DF1E016CBF001AAEC1 /* FeedTableViewCell.xib in Resources */,
 				2B9510C61E01625E001AAEC1 /* Assets.xcassets in Resources */,
 				2B9510C41E01625E001AAEC1 /* Main.storyboard in Resources */,
 			);
@@ -243,7 +258,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B9510C11E01625E001AAEC1 /* ViewController.swift in Sources */,
+				2B9510DB1E016B60001AAEC1 /* FeedViewController.swift in Sources */,
+				2B9510DE1E016CBF001AAEC1 /* FeedTableViewCell.swift in Sources */,
 				2B9510BF1E01625E001AAEC1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,6 +424,7 @@
 				2B9510CF1E01625E001AAEC1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
