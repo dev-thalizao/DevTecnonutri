@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B1C9F0B1E02331C005C671A /* LayoutConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C9F0A1E02331C005C671A /* LayoutConfig.swift */; };
 		2B9510BF1E01625E001AAEC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9510BE1E01625E001AAEC1 /* AppDelegate.swift */; };
 		2B9510C41E01625E001AAEC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B9510C21E01625E001AAEC1 /* Main.storyboard */; };
 		2B9510C61E01625E001AAEC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B9510C51E01625E001AAEC1 /* Assets.xcassets */; };
@@ -14,12 +15,21 @@
 		2B9510DB1E016B60001AAEC1 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9510DA1E016B60001AAEC1 /* FeedViewController.swift */; };
 		2B9510DE1E016CBF001AAEC1 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9510DC1E016CBF001AAEC1 /* FeedTableViewCell.swift */; };
 		2B9510DF1E016CBF001AAEC1 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B9510DD1E016CBF001AAEC1 /* FeedTableViewCell.xib */; };
+		2BA829CF1E020A4B0060AC58 /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA829CE1E020A4B0060AC58 /* FeedService.swift */; };
+		2BA829D11E020CBC0060AC58 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA829D01E020CBC0060AC58 /* Item.swift */; };
+		2BA829D31E020CCA0060AC58 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA829D21E020CCA0060AC58 /* Profile.swift */; };
+		2BA829D51E020D560060AC58 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA829D41E020D560060AC58 /* Meal.swift */; };
+		2BA829D81E0217800060AC58 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA829D71E0217800060AC58 /* DateUtils.swift */; };
+		2BA829DA1E0221150060AC58 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA829D91E0221150060AC58 /* FeedView.swift */; };
+		2BE0C1001E0202C900472118 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE0C0FF1E0202C900472118 /* NetworkService.swift */; };
+		2BE0C1021E02033900472118 /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE0C1011E02033900472118 /* FeedPresenter.swift */; };
 		EA6FC99CDDBC8F107EC7038E /* Pods_DevTecnonutri.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E97C86C084C81A810B89711 /* Pods_DevTecnonutri.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1E97C86C084C81A810B89711 /* Pods_DevTecnonutri.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DevTecnonutri.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26787862D3AA7CBD2B1CEF85 /* Pods-DevTecnonutri.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevTecnonutri.release.xcconfig"; path = "Pods/Target Support Files/Pods-DevTecnonutri/Pods-DevTecnonutri.release.xcconfig"; sourceTree = "<group>"; };
+		2B1C9F0A1E02331C005C671A /* LayoutConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConfig.swift; sourceTree = "<group>"; };
 		2B9510BB1E01625E001AAEC1 /* DevTecnonutri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevTecnonutri.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B9510BE1E01625E001AAEC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B9510C31E01625E001AAEC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -29,6 +39,14 @@
 		2B9510DA1E016B60001AAEC1 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		2B9510DC1E016CBF001AAEC1 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		2B9510DD1E016CBF001AAEC1 /* FeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
+		2BA829CE1E020A4B0060AC58 /* FeedService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
+		2BA829D01E020CBC0060AC58 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		2BA829D21E020CCA0060AC58 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		2BA829D41E020D560060AC58 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		2BA829D71E0217800060AC58 /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		2BA829D91E0221150060AC58 /* FeedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		2BE0C0FF1E0202C900472118 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		2BE0C1011E02033900472118 /* FeedPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedPresenter.swift; sourceTree = "<group>"; };
 		B31D7F33A35E47301B3EC657 /* Pods-DevTecnonutri.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevTecnonutri.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DevTecnonutri/Pods-DevTecnonutri.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +105,7 @@
 				2B9510D21E016A01001AAEC1 /* presenter */,
 				2B9510D01E0169F4001AAEC1 /* model */,
 				2B9510E01E016D02001AAEC1 /* service */,
+				2BA829D61E0217710060AC58 /* util */,
 				2B9510D31E016A08001AAEC1 /* TargetFiles */,
 			);
 			path = DevTecnonutri;
@@ -95,6 +114,9 @@
 		2B9510D01E0169F4001AAEC1 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				2BA829D01E020CBC0060AC58 /* Item.swift */,
+				2BA829D21E020CCA0060AC58 /* Profile.swift */,
+				2BA829D41E020D560060AC58 /* Meal.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -107,6 +129,7 @@
 				2B9510C21E01625E001AAEC1 /* Main.storyboard */,
 				2B9510C71E01625E001AAEC1 /* LaunchScreen.storyboard */,
 				2B9510DA1E016B60001AAEC1 /* FeedViewController.swift */,
+				2BA829D91E0221150060AC58 /* FeedView.swift */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -114,6 +137,7 @@
 		2B9510D21E016A01001AAEC1 /* presenter */ = {
 			isa = PBXGroup;
 			children = (
+				2BE0C1011E02033900472118 /* FeedPresenter.swift */,
 			);
 			name = presenter;
 			sourceTree = "<group>";
@@ -123,6 +147,7 @@
 			children = (
 				2B9510C51E01625E001AAEC1 /* Assets.xcassets */,
 				2B9510CA1E01625E001AAEC1 /* Info.plist */,
+				2B1C9F0A1E02331C005C671A /* LayoutConfig.swift */,
 			);
 			name = TargetFiles;
 			sourceTree = "<group>";
@@ -130,8 +155,18 @@
 		2B9510E01E016D02001AAEC1 /* service */ = {
 			isa = PBXGroup;
 			children = (
+				2BE0C0FF1E0202C900472118 /* NetworkService.swift */,
+				2BA829CE1E020A4B0060AC58 /* FeedService.swift */,
 			);
 			name = service;
+			sourceTree = "<group>";
+		};
+		2BA829D61E0217710060AC58 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				2BA829D71E0217800060AC58 /* DateUtils.swift */,
+			);
+			name = util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +293,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BE0C1021E02033900472118 /* FeedPresenter.swift in Sources */,
+				2BA829D31E020CCA0060AC58 /* Profile.swift in Sources */,
 				2B9510DB1E016B60001AAEC1 /* FeedViewController.swift in Sources */,
 				2B9510DE1E016CBF001AAEC1 /* FeedTableViewCell.swift in Sources */,
+				2BA829D51E020D560060AC58 /* Meal.swift in Sources */,
+				2BE0C1001E0202C900472118 /* NetworkService.swift in Sources */,
+				2BA829DA1E0221150060AC58 /* FeedView.swift in Sources */,
+				2BA829D11E020CBC0060AC58 /* Item.swift in Sources */,
+				2BA829D81E0217800060AC58 /* DateUtils.swift in Sources */,
+				2B1C9F0B1E02331C005C671A /* LayoutConfig.swift in Sources */,
 				2B9510BF1E01625E001AAEC1 /* AppDelegate.swift in Sources */,
+				2BA829CF1E020A4B0060AC58 /* FeedService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
