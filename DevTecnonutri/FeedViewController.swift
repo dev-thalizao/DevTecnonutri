@@ -26,8 +26,18 @@ class FeedViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+        // Init refresh control
+        self.tableView.refreshControl = UIRefreshControl.init()
+        //self.tableView.refreshControl?.backgroundColor
+        //self.tableView.refreshControl?.tintColor
+        self.tableView.refreshControl?.addTarget(self, action: #selector(reloadDataFromServer), for: .valueChanged)
+        
         // Setup presenter
         feedPresenter.attachView(view: self);
+        feedPresenter.getFeeds(loadMode: LoadMode.refresh)
+    }
+    
+    func reloadDataFromServer(){
         feedPresenter.getFeeds(loadMode: LoadMode.refresh)
     }
 
@@ -58,6 +68,11 @@ extension FeedViewController: UITableViewDelegate {
             feedPresenter.getFeeds(loadMode: LoadMode.scrolling)
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = feedData[indexPath.row]
+        print("Item clicked \(item)")
+    }
 }
 
 extension FeedViewController: FeedView {
@@ -66,7 +81,11 @@ extension FeedViewController: FeedView {
     }
     
     func finishLoading(){
-        SVProgressHUD.dismiss()
+        if(SVProgressHUD.isVisible()){
+            SVProgressHUD.dismiss()
+        }
+        
+        self.tableView.refreshControl?.endRefreshing()
     }
     
     func setFeed(items: [Item], loadMode: LoadMode){

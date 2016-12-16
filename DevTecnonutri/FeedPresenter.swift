@@ -18,12 +18,12 @@ class FeedPresenter {
     
     private let feedService: FeedService
     private var feedView: FeedView?
+    private var firstLoad = true
     private var pageNumber = 1
     private var timestamp: Any?
     
     init(feedService: FeedService) {
         self.feedService = feedService
-        
     }
     
     func attachView(view: FeedView){
@@ -44,7 +44,11 @@ class FeedPresenter {
             params = nil
         }
         
-        self.feedView?.startLoading()
+        if(self.firstLoad){
+            self.feedView?.startLoading()
+            self.firstLoad = false
+        }
+        
         feedService.getFeeds(params: params, onSuccess: { (response) -> Void in
             // Parse json
             let json = JSON(response)
