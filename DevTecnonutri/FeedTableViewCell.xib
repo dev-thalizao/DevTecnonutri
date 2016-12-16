@@ -12,11 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedCell" rowHeight="451" id="xSK-Ag-DgO" customClass="FeedTableViewCell" customModule="DevTecnonutri" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeedCell" rowHeight="451" id="xSK-Ag-DgO" customClass="FeedTableViewCell" customModule="DevTecnonutri" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="451"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xSK-Ag-DgO" id="oPn-u7-Ywt">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="450.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="450"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zke-zv-LjI" userLabel="Footer">

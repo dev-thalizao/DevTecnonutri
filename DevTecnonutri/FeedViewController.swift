@@ -72,6 +72,10 @@ extension FeedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = feedData[indexPath.row]
         print("Item clicked \(item)")
+        
+        let feedDetailViewController = FeedDetailViewController()
+        feedDetailViewController.item = item
+        self.navigationController?.pushViewController(feedDetailViewController, animated: true)
     }
 }
 
