@@ -10,6 +10,7 @@ import Foundation
 import SwiftyJSON
 
 struct Item {
+    let feedHash: String
     let imageUrl: String
     let mealType: Meal
     let date: Date
@@ -17,6 +18,7 @@ struct Item {
     let user: User
     
     init(json: JSON) {
+        self.feedHash = json["feedHash"].stringValue
         self.imageUrl = json["image"].stringValue
         self.mealType = Meal(rawValue: json["meal"].intValue)!
         self.date = DateUtils.formatDate(stringDate: json["date"].stringValue)
