@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2B1C9F0B1E02331C005C671A /* LayoutConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C9F0A1E02331C005C671A /* LayoutConfig.swift */; };
 		2B259A201E03854F00AF0762 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B259A1F1E03854F00AF0762 /* Endpoint.swift */; };
+		2B259A231E039A9500AF0762 /* FeedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B259A211E039A9500AF0762 /* FeedDetailViewController.swift */; };
+		2B259A241E039A9500AF0762 /* FeedDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B259A221E039A9500AF0762 /* FeedDetailViewController.xib */; };
 		2B9510BF1E01625E001AAEC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9510BE1E01625E001AAEC1 /* AppDelegate.swift */; };
 		2B9510C41E01625E001AAEC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B9510C21E01625E001AAEC1 /* Main.storyboard */; };
 		2B9510C61E01625E001AAEC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B9510C51E01625E001AAEC1 /* Assets.xcassets */; };
@@ -31,6 +33,8 @@
 		26787862D3AA7CBD2B1CEF85 /* Pods-DevTecnonutri.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevTecnonutri.release.xcconfig"; path = "Pods/Target Support Files/Pods-DevTecnonutri/Pods-DevTecnonutri.release.xcconfig"; sourceTree = "<group>"; };
 		2B1C9F0A1E02331C005C671A /* LayoutConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConfig.swift; sourceTree = "<group>"; };
 		2B259A1F1E03854F00AF0762 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		2B259A211E039A9500AF0762 /* FeedDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedDetailViewController.swift; sourceTree = "<group>"; };
+		2B259A221E039A9500AF0762 /* FeedDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedDetailViewController.xib; sourceTree = "<group>"; };
 		2B9510BB1E01625E001AAEC1 /* DevTecnonutri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevTecnonutri.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B9510BE1E01625E001AAEC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B9510C31E01625E001AAEC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 				2B9510C71E01625E001AAEC1 /* LaunchScreen.storyboard */,
 				2B9510DA1E016B60001AAEC1 /* FeedViewController.swift */,
 				2BA829D91E0221150060AC58 /* FeedView.swift */,
+				2B259A211E039A9500AF0762 /* FeedDetailViewController.swift */,
+				2B259A221E039A9500AF0762 /* FeedDetailViewController.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -235,6 +241,7 @@
 				2B9510DF1E016CBF001AAEC1 /* FeedTableViewCell.xib in Resources */,
 				2B9510C61E01625E001AAEC1 /* Assets.xcassets in Resources */,
 				2B9510C41E01625E001AAEC1 /* Main.storyboard in Resources */,
+				2B259A241E039A9500AF0762 /* FeedDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +303,7 @@
 				2BE0C1021E02033900472118 /* FeedPresenter.swift in Sources */,
 				2BA829D31E020CCA0060AC58 /* User.swift in Sources */,
 				2B9510DB1E016B60001AAEC1 /* FeedViewController.swift in Sources */,
+				2B259A231E039A9500AF0762 /* FeedDetailViewController.swift in Sources */,
 				2B259A201E03854F00AF0762 /* Endpoint.swift in Sources */,
 				2B9510DE1E016CBF001AAEC1 /* FeedTableViewCell.swift in Sources */,
 				2BA829D51E020D560060AC58 /* Meal.swift in Sources */,
