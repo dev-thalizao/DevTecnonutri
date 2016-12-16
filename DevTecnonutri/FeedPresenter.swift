@@ -33,6 +33,7 @@ class FeedPresenter {
             self.feedView?.finishLoading()
             
             self.feedView?.setFeed(items: items)
+            
         }
     }
 }

@@ -9,25 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--FeedViewController-->
-        <scene sceneID="hTm-Le-XIQ">
-            <objects>
-                <tableViewController id="ZcX-h2-YC3" userLabel="FeedViewController" customClass="FeedViewController" customModule="DevTecnonutri" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="oL4-NL-9Ud">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="ZcX-h2-YC3" id="NnB-wa-bCp"/>
-                            <outlet property="delegate" destination="ZcX-h2-YC3" id="aGz-Ty-8Ly"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Feed" id="1DL-LX-VOf"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XYL-73-8jA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="89" y="193"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="LZF-Ng-y23">
             <objects>
@@ -35,14 +16,49 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oCk-wP-3au">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.90196078431372551" green="0.49411764705882355" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="ZcX-h2-YC3" kind="relationship" relationship="rootViewController" id="VLC-9T-TOp"/>
+                        <segue destination="iD3-re-RGq" kind="relationship" relationship="rootViewController" id="rTl-Ab-JXZ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Li-WB-yZS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-758" y="193"/>
+        </scene>
+        <!--Feed-->
+        <scene sceneID="ZRm-qg-1bf">
+            <objects>
+                <viewController id="iD3-re-RGq" customClass="FeedViewController" customModule="DevTecnonutri" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rog-Gf-m8c"/>
+                        <viewControllerLayoutGuide type="bottom" id="P9y-mF-e6g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Z14-in-Hyz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ja1-bT-VEn">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="P9y-mF-e6g" firstAttribute="top" secondItem="Ja1-bT-VEn" secondAttribute="bottom" id="QWf-Hv-o7U"/>
+                            <constraint firstAttribute="trailing" secondItem="Ja1-bT-VEn" secondAttribute="trailing" id="TUq-9u-Siv"/>
+                            <constraint firstItem="Ja1-bT-VEn" firstAttribute="leading" secondItem="Z14-in-Hyz" secondAttribute="leading" id="b7V-hU-DFf"/>
+                            <constraint firstItem="Ja1-bT-VEn" firstAttribute="top" secondItem="Z14-in-Hyz" secondAttribute="top" id="td6-tv-PWO"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Feed" id="MnX-lN-OXB"/>
+                    <connections>
+                        <outlet property="tableView" destination="Ja1-bT-VEn" id="4Um-8h-ryn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OUJ-xD-c2Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="16.800000000000001" y="192.95352323838082"/>
         </scene>
     </scenes>
 </document>
