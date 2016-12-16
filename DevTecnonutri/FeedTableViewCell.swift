@@ -7,12 +7,10 @@
 //
 
 import UIKit
+import YYWebImage
 
 class FeedTableViewCell: UITableViewCell {
 
-    
-    @IBOutlet weak var rootView: UIView!
-    
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var profileGoal: UILabel!
@@ -23,22 +21,33 @@ class FeedTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        rootView.layer.borderWidth = 0.3
-        rootView.layer.borderColor = UIColor.lightGray.cgColor
-        rootView.layer.cornerRadius = 1.33
+        self.layer.borderWidth = 0.3
+        self.layer.borderColor = UIColor.lightGray.cgColor
+        self.layer.cornerRadius = 1.33
+        self.layer.shouldRasterize = true
+        self.layer.rasterizationScale = UIScreen.main.scale;
         
         // Circle image
-        profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
-        profileImage.layer.borderWidth = 0.5
-        profileImage.layer.borderColor = UIColor.lightGray.cgColor
-        profileImage.clipsToBounds = true
-        
+        self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2
+        self.profileImage.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setupCell(item: Item){
+        self.profileName.text = item.user.name
+        self.profileGoal.text = item.user.generalGoal
+        
+        self.profileImage.yy_setImage(with: URL(string: item.user.imageUrl), placeholder: UIImage(named: "profile_placeholder"), options: .setImageWithFadeAnimation, completion: nil)
+        self.mealImage.yy_setImage(with: URL(string: item.imageUrl), options: .setImageWithFadeAnimation)
+        
+        self.mealImage.contentMode = .scaleToFill
+        self.mealDate.text = "Data da refeição \(DateUtils.formatToPattern(date: item.date, pattern: "dd/MM/yyyy"))"
+        self.mealEnergy.text = "\(item.energy) kcal"
     }
     
 }
