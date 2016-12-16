@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class FeedViewController: UIViewController {
 
@@ -27,7 +28,7 @@ class FeedViewController: UIViewController {
         
         // Setup presenter
         feedPresenter.attachView(view: self);
-        feedPresenter.getFeed()
+        feedPresenter.getFeeds(loadMode: LoadMode.refresh)
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,20 +53,28 @@ extension FeedViewController: UITableViewDataSource {
 }
 
 extension FeedViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if(indexPath.row == (feedData.count - 1)){
+            feedPresenter.getFeeds(loadMode: LoadMode.scrolling)
+        }
+    }
 }
 
 extension FeedViewController: FeedView {
     func startLoading(){
-        
+        SVProgressHUD.show()
     }
     
     func finishLoading(){
-        
+        SVProgressHUD.dismiss()
     }
     
-    func setFeed(items: [Item]){
-        self.feedData = items;
+    func setFeed(items: [Item], loadMode: LoadMode){
+        if(loadMode == LoadMode.refresh){
+            self.feedData = items
+        } else {
+            self.feedData.append(contentsOf: items)
+        }
         self.tableView.reloadData()
     }
     

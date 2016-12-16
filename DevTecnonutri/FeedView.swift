@@ -11,7 +11,7 @@ import Foundation
 protocol FeedView {
     func startLoading()
     func finishLoading()
-    func setFeed(items: [Item])
+    func setFeed(items: [Item], loadMode: LoadMode)
     func setEmptyFeed()
     func showMessage(message: String)
 }
