@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2B1C9F0B1E02331C005C671A /* LayoutConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C9F0A1E02331C005C671A /* LayoutConfig.swift */; };
+		2B1F565B1E045EFF00800ADE /* UserHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1F56591E045EFF00800ADE /* UserHeaderCollectionReusableView.swift */; };
+		2B1F565C1E045EFF00800ADE /* UserHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F565A1E045EFF00800ADE /* UserHeaderCollectionReusableView.xib */; };
+		2B1F56631E04651400800ADE /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1F56611E04651400800ADE /* FeedCollectionViewCell.swift */; };
+		2B1F56641E04651400800ADE /* FeedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B1F56621E04651400800ADE /* FeedCollectionViewCell.xib */; };
 		2B259A201E03854F00AF0762 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B259A1F1E03854F00AF0762 /* Endpoint.swift */; };
 		2B9510BF1E01625E001AAEC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9510BE1E01625E001AAEC1 /* AppDelegate.swift */; };
 		2B9510C41E01625E001AAEC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B9510C21E01625E001AAEC1 /* Main.storyboard */; };
@@ -22,6 +26,8 @@
 		2BA829D51E020D560060AC58 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA829D41E020D560060AC58 /* Meal.swift */; };
 		2BA829D81E0217800060AC58 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA829D71E0217800060AC58 /* DateUtils.swift */; };
 		2BA829DA1E0221150060AC58 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA829D91E0221150060AC58 /* FeedView.swift */; };
+		2BD175DC1E0459FB000E1A37 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD175DA1E0459FB000E1A37 /* UserDetailViewController.swift */; };
+		2BD175DD1E0459FB000E1A37 /* UserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BD175DB1E0459FB000E1A37 /* UserDetailViewController.xib */; };
 		2BE0C1021E02033900472118 /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE0C1011E02033900472118 /* FeedPresenter.swift */; };
 		EA6FC99CDDBC8F107EC7038E /* Pods_DevTecnonutri.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E97C86C084C81A810B89711 /* Pods_DevTecnonutri.framework */; };
 /* End PBXBuildFile section */
@@ -30,6 +36,10 @@
 		1E97C86C084C81A810B89711 /* Pods_DevTecnonutri.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DevTecnonutri.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26787862D3AA7CBD2B1CEF85 /* Pods-DevTecnonutri.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevTecnonutri.release.xcconfig"; path = "Pods/Target Support Files/Pods-DevTecnonutri/Pods-DevTecnonutri.release.xcconfig"; sourceTree = "<group>"; };
 		2B1C9F0A1E02331C005C671A /* LayoutConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConfig.swift; sourceTree = "<group>"; };
+		2B1F56591E045EFF00800ADE /* UserHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		2B1F565A1E045EFF00800ADE /* UserHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
+		2B1F56611E04651400800ADE /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
+		2B1F56621E04651400800ADE /* FeedCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedCollectionViewCell.xib; sourceTree = "<group>"; };
 		2B259A1F1E03854F00AF0762 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		2B9510BB1E01625E001AAEC1 /* DevTecnonutri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevTecnonutri.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B9510BE1E01625E001AAEC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +56,8 @@
 		2BA829D41E020D560060AC58 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		2BA829D71E0217800060AC58 /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		2BA829D91E0221150060AC58 /* FeedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		2BD175DA1E0459FB000E1A37 /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		2BD175DB1E0459FB000E1A37 /* UserDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDetailViewController.xib; sourceTree = "<group>"; };
 		2BE0C1011E02033900472118 /* FeedPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedPresenter.swift; sourceTree = "<group>"; };
 		B31D7F33A35E47301B3EC657 /* Pods-DevTecnonutri.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevTecnonutri.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DevTecnonutri/Pods-DevTecnonutri.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +136,7 @@
 		2B9510D11E0169F8001AAEC1 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				2BD175D91E0459E4000E1A37 /* user */,
 				2B9510DC1E016CBF001AAEC1 /* FeedTableViewCell.swift */,
 				2B9510DD1E016CBF001AAEC1 /* FeedTableViewCell.xib */,
 				2B9510C21E01625E001AAEC1 /* Main.storyboard */,
@@ -167,6 +180,19 @@
 				2BA829D71E0217800060AC58 /* DateUtils.swift */,
 			);
 			name = util;
+			sourceTree = "<group>";
+		};
+		2BD175D91E0459E4000E1A37 /* user */ = {
+			isa = PBXGroup;
+			children = (
+				2BD175DA1E0459FB000E1A37 /* UserDetailViewController.swift */,
+				2BD175DB1E0459FB000E1A37 /* UserDetailViewController.xib */,
+				2B1F56591E045EFF00800ADE /* UserHeaderCollectionReusableView.swift */,
+				2B1F565A1E045EFF00800ADE /* UserHeaderCollectionReusableView.xib */,
+				2B1F56611E04651400800ADE /* FeedCollectionViewCell.swift */,
+				2B1F56621E04651400800ADE /* FeedCollectionViewCell.xib */,
+			);
+			name = user;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,7 +258,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B9510C91E01625E001AAEC1 /* LaunchScreen.storyboard in Resources */,
+				2BD175DD1E0459FB000E1A37 /* UserDetailViewController.xib in Resources */,
 				2B9510DF1E016CBF001AAEC1 /* FeedTableViewCell.xib in Resources */,
+				2B1F565C1E045EFF00800ADE /* UserHeaderCollectionReusableView.xib in Resources */,
+				2B1F56641E04651400800ADE /* FeedCollectionViewCell.xib in Resources */,
 				2B9510C61E01625E001AAEC1 /* Assets.xcassets in Resources */,
 				2B9510C41E01625E001AAEC1 /* Main.storyboard in Resources */,
 			);
@@ -295,6 +324,8 @@
 			files = (
 				2BE0C1021E02033900472118 /* FeedPresenter.swift in Sources */,
 				2BA829D31E020CCA0060AC58 /* User.swift in Sources */,
+				2B1F56631E04651400800ADE /* FeedCollectionViewCell.swift in Sources */,
+				2BD175DC1E0459FB000E1A37 /* UserDetailViewController.swift in Sources */,
 				2B9510DB1E016B60001AAEC1 /* FeedViewController.swift in Sources */,
 				2B259A201E03854F00AF0762 /* Endpoint.swift in Sources */,
 				2B9510DE1E016CBF001AAEC1 /* FeedTableViewCell.swift in Sources */,
@@ -305,6 +336,7 @@
 				2B1C9F0B1E02331C005C671A /* LayoutConfig.swift in Sources */,
 				2B9510BF1E01625E001AAEC1 /* AppDelegate.swift in Sources */,
 				2BA829CF1E020A4B0060AC58 /* FeedService.swift in Sources */,
+				2B1F565B1E045EFF00800ADE /* UserHeaderCollectionReusableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
