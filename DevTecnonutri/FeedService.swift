@@ -62,7 +62,7 @@ class FeedService: NetworkService {
             
             // parse items
             let items = json["items"].arrayValue.map({ (jsonItem) -> Item in
-                return self.parseItem(jsonItem: jsonItem)
+                return Item(json: jsonItem)
             })
             
             completion(items, nil)
@@ -71,25 +71,4 @@ class FeedService: NetworkService {
             completion([], error)
         })
     }
-    
-    func parseItem(jsonItem: JSON) -> Item{
-        // Parse profile
-        let jsonProfile = jsonItem["profile"]
-        let profile = Profile(name: jsonProfile["name"].stringValue,
-                              imageUrl: jsonProfile["image"].stringValue,
-                              generalGoal: jsonProfile["general_goal"].stringValue)
-        
-        // Parse date
-        let date = DateUtils.formatDate(stringDate: jsonItem["date"].stringValue)
-        
-        // Parse item
-        let item = Item(imageUrl: jsonItem["image"].stringValue,
-                        mealType: Meal(rawValue: jsonItem["meal"].intValue)!,
-                        date: date,
-                        energy: jsonItem["energy"].floatValue,
-                        profile: profile)
-        
-        return item
-    }
-    
 }
