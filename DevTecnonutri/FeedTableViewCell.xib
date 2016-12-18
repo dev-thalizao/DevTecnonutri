@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="451"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xSK-Ag-DgO" id="oPn-u7-Ywt">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="451"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="450"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zke-zv-LjI" userLabel="Footer">
@@ -78,12 +78,19 @@
                                 <color key="textColor" red="0.3294117647" green="0.33333333329999998" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DtN-Ws-RTL">
+                                <rect key="frame" x="8" y="8" width="40" height="40"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zab-FL-Vsh" firstAttribute="top" secondItem="G5z-T3-eUK" secondAttribute="top" constant="8" id="5cj-cv-yib"/>
+                            <constraint firstItem="DtN-Ws-RTL" firstAttribute="leading" secondItem="zab-FL-Vsh" secondAttribute="leading" id="6V2-5p-FBR"/>
                             <constraint firstAttribute="trailing" secondItem="Rdd-Pj-xrB" secondAttribute="trailing" constant="8" id="6ah-fw-Fw0"/>
+                            <constraint firstItem="DtN-Ws-RTL" firstAttribute="trailing" secondItem="zab-FL-Vsh" secondAttribute="trailing" id="7Yy-Hh-dPm"/>
                             <constraint firstItem="zab-FL-Vsh" firstAttribute="leading" secondItem="G5z-T3-eUK" secondAttribute="leading" constant="8" id="FcP-9C-OLD"/>
+                            <constraint firstItem="DtN-Ws-RTL" firstAttribute="bottom" secondItem="zab-FL-Vsh" secondAttribute="bottom" id="Iq4-1r-uVW"/>
+                            <constraint firstItem="DtN-Ws-RTL" firstAttribute="top" secondItem="zab-FL-Vsh" secondAttribute="top" id="JIM-2c-Wce"/>
                             <constraint firstItem="y3O-7C-aK3" firstAttribute="top" secondItem="zab-FL-Vsh" secondAttribute="top" id="Sct-Of-p0S"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="YHY-Pa-4Bq"/>
                             <constraint firstItem="Rdd-Pj-xrB" firstAttribute="leading" secondItem="zab-FL-Vsh" secondAttribute="trailing" constant="8" id="bZx-dP-ne3"/>
@@ -113,6 +120,7 @@
                 <outlet property="mealEnergy" destination="WzD-c8-iz0" id="mqX-eu-zzM"/>
                 <outlet property="mealImage" destination="FcS-B2-zaf" id="OSh-Dd-fEX"/>
                 <outlet property="mealStateHeight" destination="rk2-E9-LA0" id="RKN-xV-O9g"/>
+                <outlet property="profileButton" destination="DtN-Ws-RTL" id="R2k-GR-Aqa"/>
                 <outlet property="profileGoal" destination="Rdd-Pj-xrB" id="SQf-XO-7w8"/>
                 <outlet property="profileImage" destination="zab-FL-Vsh" id="Xbj-uP-QDL"/>
                 <outlet property="profileName" destination="y3O-7C-aK3" id="3Be-t0-uK3"/>

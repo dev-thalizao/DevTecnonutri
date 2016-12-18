@@ -12,7 +12,8 @@ private let sectionInsets = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right
 private let itemsPerRow: CGFloat = 3
 
 class UserDetailViewController: UIViewController {
-
+    
+    var user: User!
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {

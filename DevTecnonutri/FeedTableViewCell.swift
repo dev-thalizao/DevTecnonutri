@@ -9,15 +9,22 @@
 import UIKit
 import YYWebImage
 
+protocol FeedTableViewCellDelegate {
+    func didTapProfileImage(user: User)
+}
+
 class FeedTableViewCell: UITableViewCell {
 
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var profileGoal: UILabel!
+    @IBOutlet weak var profileButton: UIButton!
     @IBOutlet weak var mealImage: UIImageView!
     @IBOutlet weak var mealDate: UILabel!
     @IBOutlet weak var mealEnergy: UILabel!
     @IBOutlet weak var mealStateHeight: NSLayoutConstraint!
+    var item: Item!
+    var delegate: FeedTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,6 +38,9 @@ class FeedTableViewCell: UITableViewCell {
         // Circle image
         self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2
         self.profileImage.clipsToBounds = true
+        
+        // Tap gesture
+        self.profileButton.addTarget(self, action: #selector(tapProfileImage), for: .touchUpInside)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -40,6 +50,7 @@ class FeedTableViewCell: UITableViewCell {
     }
     
     func setupCell(item: Item){
+        self.item = item
         self.profileName.text = item.user.name
         self.profileGoal.text = item.user.generalGoal
         
@@ -56,5 +67,9 @@ class FeedTableViewCell: UITableViewCell {
         setupCell(item: item)
         // Hide date and kcal
         self.mealStateHeight.constant = 0
+    }
+    
+    func tapProfileImage(){
+        delegate?.didTapProfileImage(user: item.user)
     }
 }

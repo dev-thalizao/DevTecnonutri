@@ -39,12 +39,12 @@ class FeedViewController: UIViewController {
         feedPresenter.getFeeds(loadMode: LoadMode.refresh)
     }
     
-    func reloadDataFromServer(){
-        feedPresenter.getFeeds(loadMode: LoadMode.refresh)
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func reloadDataFromServer(){
+        feedPresenter.getFeeds(loadMode: LoadMode.refresh)
     }
 }
 
@@ -59,6 +59,7 @@ extension FeedViewController: UITableViewDataSource {
         // Configure the cell...
         let item = feedData[indexPath.row]
         cell.setupCell(item: item)
+        cell.delegate = self
         
         return cell
     }
@@ -114,3 +115,10 @@ extension FeedViewController: FeedView {
     }
 }
 
+extension FeedViewController: FeedTableViewCellDelegate {
+    func didTapProfileImage(user: User) {
+        let userDetailViewController = UserDetailViewController()
+        userDetailViewController.user = user
+        self.navigationController?.pushViewController(userDetailViewController, animated: true)
+    }
+}
