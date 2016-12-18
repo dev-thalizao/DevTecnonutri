@@ -17,6 +17,7 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var mealImage: UIImageView!
     @IBOutlet weak var mealDate: UILabel!
     @IBOutlet weak var mealEnergy: UILabel!
+    @IBOutlet weak var mealStateHeight: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,7 +48,13 @@ class FeedTableViewCell: UITableViewCell {
         
         self.mealImage.contentMode = .scaleToFill
         self.mealDate.text = "Data da refeição \(DateUtils.formatToPattern(date: item.date, pattern: "dd/MM/yyyy"))"
-        self.mealEnergy.text = "\(item.energy) kcal"
+        self.mealEnergy.text = "\(NumberUtils.formatNumberToHumanReadable(number: item.totalNutrients.energy)) kcal"
+        self.mealStateHeight.constant = 56
     }
     
+    func setupCellForDetail(item: Item){
+        setupCell(item: item)
+        // Hide date and kcal
+        self.mealStateHeight.constant = 0
+    }
 }

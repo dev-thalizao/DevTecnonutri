@@ -22,6 +22,10 @@ class FeedDetailTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.layer.borderWidth = 0.3
+        self.layer.borderColor = UIColor.lightGray.cgColor
+        self.layer.shouldRasterize = true
+        self.layer.rasterizationScale = UIScreen.main.scale;
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -30,7 +34,25 @@ class FeedDetailTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    override func prepareForReuse() {
+        self.descriptionLabel.font = UIFont(name: "HelveticaNeue-Light", size: 18.0)
+        self.amountLabel.isHidden = false
+    }
+    
     func setupCell(food: Food){
-        
+        self.descriptionLabel.text = food.description
+        self.amountLabel.text = "\(food.amount) \(food.measure) (\(NumberUtils.formatNumberToHumanReadable(number: food.weight)) g)"
+        self.energyLabel.text = "\(NumberUtils.formatNumberToHumanReadable(number: food.energy)) g"
+        self.carbohydrateLabel.text = "\(NumberUtils.formatNumberToHumanReadable(number: food.carbohydrate)) g"
+        self.proteinLabel.text = "\(NumberUtils.formatNumberToHumanReadable(number: food.protein)) g"
+        self.fatLabel.text = "\(NumberUtils.formatNumberToHumanReadable(number: food.fat)) g"
+    }
+    
+    func setupCellForTotalNutrients(food: Food){
+        setupCell(food: food)
+        self.descriptionLabel.text = "Total Consumido"
+        self.descriptionLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 18.0)
+        self.amountLabel.text = nil
+        self.amountLabel.isHidden = true
     }
 }

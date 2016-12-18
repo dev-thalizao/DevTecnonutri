@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="451"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xSK-Ag-DgO" id="oPn-u7-Ywt">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="450"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="451"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zke-zv-LjI" userLabel="Footer">
@@ -112,6 +112,7 @@
                 <outlet property="mealDate" destination="RXX-KH-ueY" id="4gp-g1-cB8"/>
                 <outlet property="mealEnergy" destination="WzD-c8-iz0" id="mqX-eu-zzM"/>
                 <outlet property="mealImage" destination="FcS-B2-zaf" id="OSh-Dd-fEX"/>
+                <outlet property="mealStateHeight" destination="rk2-E9-LA0" id="RKN-xV-O9g"/>
                 <outlet property="profileGoal" destination="Rdd-Pj-xrB" id="SQf-XO-7w8"/>
                 <outlet property="profileImage" destination="zab-FL-Vsh" id="Xbj-uP-QDL"/>
                 <outlet property="profileName" destination="y3O-7C-aK3" id="3Be-t0-uK3"/>
