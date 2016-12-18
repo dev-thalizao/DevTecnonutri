@@ -19,6 +19,7 @@
 		2B259A2A1E039E0B00AF0762 /* FeedDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B259A281E039E0B00AF0762 /* FeedDetailTableViewCell.xib */; };
 		2B259A2C1E03A3B300AF0762 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B259A2B1E03A3B300AF0762 /* Food.swift */; };
 		2B259A2E1E03A66D00AF0762 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B259A2D1E03A66D00AF0762 /* StringUtils.swift */; };
+		2B90517D1E073C910078C5E4 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B90517C1E073C910078C5E4 /* UserService.swift */; };
 		2B9510BF1E01625E001AAEC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9510BE1E01625E001AAEC1 /* AppDelegate.swift */; };
 		2B9510C41E01625E001AAEC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B9510C21E01625E001AAEC1 /* Main.storyboard */; };
 		2B9510C61E01625E001AAEC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B9510C51E01625E001AAEC1 /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 		2B259A281E039E0B00AF0762 /* FeedDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedDetailTableViewCell.xib; sourceTree = "<group>"; };
 		2B259A2B1E03A3B300AF0762 /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		2B259A2D1E03A66D00AF0762 /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
+		2B90517C1E073C910078C5E4 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		2B9510BB1E01625E001AAEC1 /* DevTecnonutri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevTecnonutri.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B9510BE1E01625E001AAEC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B9510C31E01625E001AAEC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				2BA829CE1E020A4B0060AC58 /* FeedService.swift */,
+				2B90517C1E073C910078C5E4 /* UserService.swift */,
 				2B259A1F1E03854F00AF0762 /* Endpoint.swift */,
 			);
 			name = service;
@@ -390,6 +393,7 @@
 				2BA829D11E020CBC0060AC58 /* Item.swift in Sources */,
 				2BA829D81E0217800060AC58 /* DateUtils.swift in Sources */,
 				2B1C9F0B1E02331C005C671A /* LayoutConfig.swift in Sources */,
+				2B90517D1E073C910078C5E4 /* UserService.swift in Sources */,
 				2B9510BF1E01625E001AAEC1 /* AppDelegate.swift in Sources */,
 				2BA829CF1E020A4B0060AC58 /* FeedService.swift in Sources */,
 				2B1F565B1E045EFF00800ADE /* UserHeaderCollectionReusableView.swift in Sources */,
