@@ -10,16 +10,12 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-public enum LoadMode: Int {
-    case refresh = 1, scrolling
-}
-
 class FeedPresenter {
     
     private let feedService: FeedService
     private var feedView: FeedView?
     private var firstLoad = true
-    private var pageNumber = 1
+    private var pageNumber = 0
     private var timestamp: Any?
     
     init(feedService: FeedService) {

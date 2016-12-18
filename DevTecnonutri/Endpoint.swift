@@ -11,4 +11,5 @@ import Foundation
 class Endpoint {
     static let baseUrl = "http://api.tecnonutri.com.br/api/v4/"
     static let feed = baseUrl + "feed"
+    static let feedDetail = baseUrl + "feed/"
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import CCBottomRefreshControl
 
 class FeedViewController: UIViewController {
 
@@ -31,6 +32,7 @@ class FeedViewController: UIViewController {
         //self.tableView.refreshControl?.backgroundColor
         //self.tableView.refreshControl?.tintColor
         self.tableView.refreshControl?.addTarget(self, action: #selector(reloadDataFromServer), for: .valueChanged)
+        self.tableView.bottomRefreshControl = UIRefreshControl.init()
         
         // Setup presenter
         feedPresenter.attachView(view: self);
@@ -66,12 +68,17 @@ extension FeedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if(indexPath.row == (feedData.count - 1)){
             feedPresenter.getFeeds(loadMode: LoadMode.scrolling)
+            tableView.bottomRefreshControl?.beginRefreshing()
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = feedData[indexPath.row]
         print("Item clicked \(item)")
+        
+        let feedDetailViewController = FeedDetailViewController()
+        feedDetailViewController.item = item
+        self.navigationController?.pushViewController(feedDetailViewController, animated: true)
     }
 }
 
@@ -86,6 +93,7 @@ extension FeedViewController: FeedView {
         }
         
         self.tableView.refreshControl?.endRefreshing()
+        self.tableView.bottomRefreshControl?.endRefreshing()
     }
     
     func setFeed(items: [Item], loadMode: LoadMode){
