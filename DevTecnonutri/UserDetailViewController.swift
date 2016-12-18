@@ -20,10 +20,10 @@ class UserDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.register(UINib.init(nibName: "FeedCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "feedCollectionCell")
-        collectionView.register(UINib.init(nibName: "UserHeaderCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "userHeaderCell")
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
+        self.collectionView.register(UINib.init(nibName: "FeedCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "feedCollectionCell")
+        self.collectionView.register(UINib.init(nibName: "UserHeaderCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "userHeaderCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,7 +86,7 @@ extension UserDetailViewController: UICollectionViewDataSource {
         
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "userHeaderCell", for: indexPath) as! UserHeaderCollectionReusableView
         
-        
+        headerView.setupCell(user: self.user)
         
         return headerView
     }

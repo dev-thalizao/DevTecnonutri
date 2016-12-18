@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import YYWebImage
 
 class UserHeaderCollectionReusableView: UICollectionReusableView {
 
@@ -17,5 +18,14 @@ class UserHeaderCollectionReusableView: UICollectionReusableView {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        // Circle image
+        self.userImage.layer.cornerRadius = self.userImage.frame.size.width / 2
+        self.userImage.clipsToBounds = true
+    }
+    
+    func setupCell(user: User){
+        self.userImage.yy_setImage(with: URL(string: user.imageUrl), placeholder: UIImage(named: "profile_placeholder"), options: .setImageWithFadeAnimation, completion: nil)
+        self.userName.text = user.name
+        self.userGoal.text = user.generalGoal
     }
 }
