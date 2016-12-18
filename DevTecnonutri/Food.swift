@@ -20,14 +20,26 @@
 */
  
 import Foundation
+import SwiftyJSON
 
 struct Food {
     let description: String
     let measure: String
     let amount: Int
-    let weith: Float
-    let energy: Float
-    let carbohydrate: Float
-    let fat: Float
-    let protein: Float
+    let weight: NSNumber
+    let energy: NSNumber
+    let carbohydrate: NSNumber
+    let fat: NSNumber
+    let protein: NSNumber
+    
+    init(json: JSON){
+        self.description = json["description"].stringValue
+        self.measure = json["measure"].stringValue
+        self.amount = json["amount"].intValue
+        self.weight = json["weight"].numberValue
+        self.energy = json["energy"].numberValue
+        self.carbohydrate = json["carbohydrate"].numberValue
+        self.fat = json["fat"].numberValue
+        self.protein = json["protein"].numberValue
+    }
 }
