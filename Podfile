@@ -10,4 +10,5 @@ target 'DevTecnonutri' do
   pod 'SwiftyJSON'
   pod 'YYWebImage'
   pod 'SVProgressHUD'
+  pod 'CCBottomRefreshControl'
 end
