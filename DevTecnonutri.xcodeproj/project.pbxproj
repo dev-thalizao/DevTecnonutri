@@ -20,6 +20,8 @@
 		2B259A2C1E03A3B300AF0762 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B259A2B1E03A3B300AF0762 /* Food.swift */; };
 		2B259A2E1E03A66D00AF0762 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B259A2D1E03A66D00AF0762 /* StringUtils.swift */; };
 		2B90517D1E073C910078C5E4 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B90517C1E073C910078C5E4 /* UserService.swift */; };
+		2B90517F1E0741770078C5E4 /* UserDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B90517E1E0741770078C5E4 /* UserDetailPresenter.swift */; };
+		2B9051811E0741D40078C5E4 /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9051801E0741D40078C5E4 /* UserDetailView.swift */; };
 		2B9510BF1E01625E001AAEC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9510BE1E01625E001AAEC1 /* AppDelegate.swift */; };
 		2B9510C41E01625E001AAEC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B9510C21E01625E001AAEC1 /* Main.storyboard */; };
 		2B9510C61E01625E001AAEC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B9510C51E01625E001AAEC1 /* Assets.xcassets */; };
@@ -59,6 +61,8 @@
 		2B259A2B1E03A3B300AF0762 /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		2B259A2D1E03A66D00AF0762 /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		2B90517C1E073C910078C5E4 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		2B90517E1E0741770078C5E4 /* UserDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailPresenter.swift; sourceTree = "<group>"; };
+		2B9051801E0741D40078C5E4 /* UserDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
 		2B9510BB1E01625E001AAEC1 /* DevTecnonutri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevTecnonutri.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B9510BE1E01625E001AAEC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B9510C31E01625E001AAEC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 			children = (
 				2BE0C1011E02033900472118 /* FeedPresenter.swift */,
 				2BCDDC001E06CF620015A574 /* FeedDetailPresenter.swift */,
+				2B90517E1E0741770078C5E4 /* UserDetailPresenter.swift */,
 			);
 			name = presenter;
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 				2B1F565A1E045EFF00800ADE /* UserHeaderCollectionReusableView.xib */,
 				2B1F56611E04651400800ADE /* FeedCollectionViewCell.swift */,
 				2B1F56621E04651400800ADE /* FeedCollectionViewCell.xib */,
+				2B9051801E0741D40078C5E4 /* UserDetailView.swift */,
 			);
 			name = user;
 			sourceTree = "<group>";
@@ -383,6 +389,7 @@
 				2BD175DC1E0459FB000E1A37 /* UserDetailViewController.swift in Sources */,
 				2BCDDC071E06DBB00015A574 /* NumberUtils.swift in Sources */,
 				2B259A2E1E03A66D00AF0762 /* StringUtils.swift in Sources */,
+				2B90517F1E0741770078C5E4 /* UserDetailPresenter.swift in Sources */,
 				2B9510DB1E016B60001AAEC1 /* FeedViewController.swift in Sources */,
 				2B259A231E039A9500AF0762 /* FeedDetailViewController.swift in Sources */,
 				2B259A201E03854F00AF0762 /* Endpoint.swift in Sources */,
@@ -395,6 +402,7 @@
 				2B1C9F0B1E02331C005C671A /* LayoutConfig.swift in Sources */,
 				2B90517D1E073C910078C5E4 /* UserService.swift in Sources */,
 				2B9510BF1E01625E001AAEC1 /* AppDelegate.swift in Sources */,
+				2B9051811E0741D40078C5E4 /* UserDetailView.swift in Sources */,
 				2BA829CF1E020A4B0060AC58 /* FeedService.swift in Sources */,
 				2B1F565B1E045EFF00800ADE /* UserHeaderCollectionReusableView.swift in Sources */,
 			);
