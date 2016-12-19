@@ -16,7 +16,7 @@ class FeedPresenter {
     private var feedView: FeedView?
     private var firstLoad = true
     private var pageNumber = 0
-    private var timestamp: Any?
+    private var timestamp: NSNumber = 0
     
     init(feedService: FeedService) {
         self.feedService = feedService
@@ -33,7 +33,7 @@ class FeedPresenter {
     func getFeeds(loadMode: LoadMode){
         let params: [String: Any]?
         if(loadMode != LoadMode.refresh){
-            params = ["p": self.pageNumber]
+            params = ["p": self.pageNumber, "t": self.timestamp]
         } else {
             self.pageNumber = 0;
             self.timestamp = 0
@@ -57,7 +57,7 @@ class FeedPresenter {
                 
                 self.feedView?.finishLoading()
                 self.pageNumber += 1
-                self.timestamp = json["t"]
+                self.timestamp = json["t"].numberValue
                 self.feedView?.setFeed(items: items, loadMode: loadMode)
             } else {
                 // Error msg

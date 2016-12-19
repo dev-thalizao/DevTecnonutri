@@ -15,7 +15,7 @@ class UserDetailPresenter {
     private var userDetailView: UserDetailView?
     private var firstLoad = true
     private var pageNumber = 0
-    private var timestamp: Any?
+    private var timestamp: NSNumber = 0
     private var scrollIsOver = false
     
     init(userService: UserService) {
@@ -41,7 +41,7 @@ class UserDetailPresenter {
         let params: [String: Any]?
 
         if(loadMode != LoadMode.refresh){
-            params = ["p": self.pageNumber]
+            params = ["p": self.pageNumber, "t": self.timestamp]
         } else {
             self.pageNumber = 0;
             self.timestamp = 0
@@ -80,7 +80,7 @@ class UserDetailPresenter {
                 
                 self.userDetailView?.finishLoading()
                 self.pageNumber += 1
-                self.timestamp = json["t"]
+                self.timestamp = json["t"].numberValue
                 
                 self.userDetailView?.setUser(user: userUpdated)
             } else {
