@@ -14,7 +14,7 @@ struct Item {
     let imageUrl: String
     let mealType: Meal
     let date: Date
-    let foods: [Food]
+    var foods = [Food]()
     let totalNutrients: Food
     let user: User
     

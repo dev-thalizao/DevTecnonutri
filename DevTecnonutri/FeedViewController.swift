@@ -33,6 +33,7 @@ class FeedViewController: UIViewController {
         //self.tableView.refreshControl?.tintColor
         self.tableView.refreshControl?.addTarget(self, action: #selector(reloadDataFromServer), for: .valueChanged)
         self.tableView.bottomRefreshControl = UIRefreshControl.init()
+        self.tableView.bottomRefreshControl.addTarget(self, action: #selector(incrementDataFromServer), for: .valueChanged)
         
         // Setup presenter
         feedPresenter.attachView(view: self);
@@ -45,6 +46,10 @@ class FeedViewController: UIViewController {
     
     func reloadDataFromServer(){
         feedPresenter.getFeeds(loadMode: LoadMode.refresh)
+    }
+    
+    func incrementDataFromServer(){
+        feedPresenter.getFeeds(loadMode: LoadMode.scrolling)
     }
 }
 

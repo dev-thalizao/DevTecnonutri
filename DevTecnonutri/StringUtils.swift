@@ -7,12 +7,18 @@
 //
 
 import Foundation
+import UIKit
 
 class StringUtils {
     
-    static let validChars = Set("abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890+-*=(),.:!_".characters)
+    static func getTextHeightForView(text: NSString, width: CGFloat, font: UIFont) -> CGFloat {
+        let rect = text.boundingRect(with: CGSize(width: width, height: CGFloat.greatestFiniteMagnitude),
+                          options: [.usesLineFragmentOrigin, .usesFontLeading],
+                          attributes: [NSFontAttributeName: font],
+                          context: nil)
+        
+        return rect.height
+    }
     
-//    static func sanitizeString(string: String) -> String {
-//       return string.stringByReplacingOccurrencesOfString("\"", withString: "", options: .literal, range: nil)
-//    }
+    
 }

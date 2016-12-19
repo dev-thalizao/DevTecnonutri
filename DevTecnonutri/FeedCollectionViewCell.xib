@@ -23,6 +23,7 @@
                     </imageView>
                 </subviews>
             </view>
+            <color key="backgroundColor" red="0.89019607840000003" green="0.89019607840000003" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="OCG-sj-LI5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="1Al-L7-g4K"/>
                 <constraint firstAttribute="bottom" secondItem="OCG-sj-LI5" secondAttribute="bottom" id="1cG-Wo-bfm"/>
@@ -30,7 +31,7 @@
                 <constraint firstAttribute="trailing" secondItem="OCG-sj-LI5" secondAttribute="trailing" id="GY8-Vk-OTd"/>
             </constraints>
             <connections>
-                <outlet property="feedImage" destination="OCG-sj-LI5" id="oTk-ch-h6w"/>
+                <outlet property="mealImage" destination="OCG-sj-LI5" id="VMo-Th-zAW"/>
             </connections>
         </collectionViewCell>
     </objects>

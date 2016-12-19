@@ -20,8 +20,9 @@ class FeedDetailViewController: UIViewController {
 
         // Set navbar
         self.navigationItem.title = "\(item.mealType.getMealName()) de \(DateUtils.formatToPattern(date: item.date, pattern: "dd/MM/yyyy"))"
+        self.navigationItem.titleView?.sizeToFit()
         
-        let backButton = UIBarButtonItem.init(title: "", style: .plain, target: self, action: #selector(backToFeed))
+        let backButton = UIBarButtonItem.init(title: "", style: .plain, target: self, action: #selector(backToThePreviousViewController))
         backButton.image = UIImage(named: "back_button")
         backButton.tintColor = UIColor.white
         self.navigationItem.leftBarButtonItem = backButton
@@ -55,7 +56,7 @@ class FeedDetailViewController: UIViewController {
         feedDetailPresenter.getFeed(item: self.item)
     }
     
-    func backToFeed(){
+    func backToThePreviousViewController(){
         _ = self.navigationController?.popViewController(animated: true)
     }
 }
@@ -78,6 +79,7 @@ extension FeedDetailViewController: UITableViewDataSource {
             
             // Configure the cell...
             cell.setupCellForDetail(item: item)
+            cell.delegate = self
             
             return cell
         } else if(indexPath.section == 1) {
@@ -128,5 +130,13 @@ extension FeedDetailViewController: FeedDetailView {
     
     func showMessage(message: String){
         
+    }
+}
+
+extension FeedDetailViewController: FeedTableViewCellDelegate {
+    func didTapProfileImage(user: User) {
+        let userDetailViewController = UserDetailViewController()
+        userDetailViewController.user = user
+        self.navigationController?.pushViewController(userDetailViewController, animated: true)
     }
 }

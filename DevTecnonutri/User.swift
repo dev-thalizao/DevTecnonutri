@@ -14,16 +14,12 @@ struct User {
     let name: String
     let imageUrl: String
     let generalGoal: String
-    let items: [Item]
+    var items = [Item]()
     
     init(json: JSON) {
         self.id = json["id"].numberValue
         self.name = json["name"].stringValue
         self.imageUrl = json["image"].stringValue
         self.generalGoal = json["general_goal"].stringValue
-        
-        self.items = json["items"].arrayValue.map({ (itemJson) -> Item in
-            return Item(json: itemJson)
-        })
     }
 }

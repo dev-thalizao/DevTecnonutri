@@ -8,6 +8,7 @@
 
 import UIKit
 import YYWebImage
+import Foundation
 
 class UserHeaderCollectionReusableView: UICollectionReusableView {
 
@@ -18,6 +19,11 @@ class UserHeaderCollectionReusableView: UICollectionReusableView {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.layer.masksToBounds = false
+        self.layer.shadowOffset = CGSize(width: 0, height: 1)
+        self.layer.shadowRadius = 3
+        self.layer.shadowOpacity = 0.5
+        
         // Circle image
         self.userImage.layer.cornerRadius = self.userImage.frame.size.width / 2
         self.userImage.clipsToBounds = true
