@@ -12,7 +12,9 @@ import Alamofire
 class FeedService {
     
     func getFeeds(params: [String : Any]?,  onSuccess: @escaping (Any) -> Void, onFail: @escaping (NSError) -> Void){
+        
         Alamofire.request(Endpoint.feed, method: .get, parameters: params).validate().responseJSON { (response) in
+        
             switch response.result {
             case .success(let value):
                 onSuccess(value)

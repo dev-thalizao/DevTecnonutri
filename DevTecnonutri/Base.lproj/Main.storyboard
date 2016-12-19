@@ -13,7 +13,7 @@
         <scene sceneID="LZF-Ng-y23">
             <objects>
                 <navigationController id="U77-Cs-0cc" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="oCk-wP-3au">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="oCk-wP-3au">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.85262101888656616" green="0.42218321561813354" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -43,17 +43,26 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.8901960784313725" green="0.8901960784313725" blue="0.88235294117647056" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conteúdo não disponível" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KI1-TT-l9d">
+                                <rect key="frame" x="69" y="321" width="237.5" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" red="0.3294117647" green="0.33333333329999998" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="P9y-mF-e6g" firstAttribute="top" secondItem="Ja1-bT-VEn" secondAttribute="bottom" id="QWf-Hv-o7U"/>
                             <constraint firstAttribute="trailing" secondItem="Ja1-bT-VEn" secondAttribute="trailing" id="TUq-9u-Siv"/>
+                            <constraint firstItem="KI1-TT-l9d" firstAttribute="centerY" secondItem="Z14-in-Hyz" secondAttribute="centerY" id="Zc0-TI-93l"/>
                             <constraint firstItem="Ja1-bT-VEn" firstAttribute="leading" secondItem="Z14-in-Hyz" secondAttribute="leading" id="b7V-hU-DFf"/>
                             <constraint firstItem="Ja1-bT-VEn" firstAttribute="top" secondItem="Z14-in-Hyz" secondAttribute="top" id="td6-tv-PWO"/>
+                            <constraint firstItem="KI1-TT-l9d" firstAttribute="centerX" secondItem="Z14-in-Hyz" secondAttribute="centerX" id="w7M-I3-eMy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Feed" id="MnX-lN-OXB"/>
                     <connections>
+                        <outlet property="noFeedAvailable" destination="KI1-TT-l9d" id="UX9-HF-Tn3"/>
                         <outlet property="tableView" destination="Ja1-bT-VEn" id="4Um-8h-ryn"/>
                     </connections>
                 </viewController>

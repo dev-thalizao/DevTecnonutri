@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 import SwiftyJSON
 
 class FeedPresenter {
@@ -46,6 +45,8 @@ class FeedPresenter {
         }
         
         feedService.getFeeds(params: params, onSuccess: { (response) -> Void in
+            self.feedView?.finishLoading()
+            
             // Parse json
             let json = JSON(response)
             
@@ -55,17 +56,21 @@ class FeedPresenter {
                     return Item(json: jsonItem)
                 })
                 
-                self.feedView?.finishLoading()
                 self.pageNumber += 1
                 self.timestamp = json["t"].numberValue
                 self.feedView?.setFeed(items: items, loadMode: loadMode)
             } else {
-                // Error msg
+                self.feedView?.setFeed(items: [], loadMode: loadMode)
+                self.feedView?.showMessage(message: "Houve um erro ao buscar o feed!", isError: true)
             }
-                
-                
         }, onFail: { (error) -> Void in
-            // Error msg
+            self.feedView?.finishLoading()
+
+            if(error.code == NSURLErrorNotConnectedToInternet){
+                self.feedView?.showMessage(message: "Verifique sua conexão com a internet.", isError: true)
+            } else {
+                self.feedView?.showMessage(message: "Algo estranho aconteceu :(", isError: true)
+            }
         })
     }
 }

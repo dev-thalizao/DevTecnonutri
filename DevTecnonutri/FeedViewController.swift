@@ -13,6 +13,7 @@ import CCBottomRefreshControl
 class FeedViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var noFeedAvailable: UILabel!
     
     let feedPresenter = FeedPresenter(feedService: FeedService())
     var feedData = [Item]()
@@ -45,11 +46,27 @@ class FeedViewController: UIViewController {
     }
     
     func reloadDataFromServer(){
+        self.noFeedAvailable.isHidden = true
         feedPresenter.getFeeds(loadMode: LoadMode.refresh)
     }
     
     func incrementDataFromServer(){
+        self.noFeedAvailable.isHidden = true
         feedPresenter.getFeeds(loadMode: LoadMode.scrolling)
+    }
+    
+    func registerObservableForInternet(){
+        let notificationName = Notification.Name("InternetOff")
+        
+        // Register to receive notification
+        NotificationCenter.default.addObserver(self, selector: #selector(alertForInternetUnavailable), name: notificationName, object: nil)
+        
+        // Post notification
+        NotificationCenter.default.post(name: notificationName, object: nil)
+    }
+    
+    func alertForInternetUnavailable(){
+        self.showMessage(message: "Verifique sua conexão com a internet.", isError: true)
     }
 }
 
@@ -89,6 +106,7 @@ extension FeedViewController: UITableViewDelegate {
 }
 
 extension FeedViewController: FeedView {
+    
     func startLoading(){
         SVProgressHUD.show()
     }
@@ -104,19 +122,34 @@ extension FeedViewController: FeedView {
     
     func setFeed(items: [Item], loadMode: LoadMode){
         if(loadMode == LoadMode.refresh){
-            self.feedData = items
+            if(items.count > 0){
+                self.feedData = items
+            }
         } else {
             self.feedData.append(contentsOf: items)
         }
-        self.tableView.reloadData()
+        
+        if(self.feedData.count == 0){
+            setEmptyFeed()
+        } else {
+            self.tableView.reloadData()
+        }
     }
     
     func setEmptyFeed(){
-        
+        self.noFeedAvailable.isHidden = false
     }
     
-    func showMessage(message: String){
+    func showMessage(message: String, isError: Bool){
+        let alert = UIAlertController.init(title: "Tecnonutri", message: message, preferredStyle: UIAlertControllerStyle.alert)
         
+        let style: UIAlertActionStyle = isError ? .destructive : .default
+        
+        let action = UIAlertAction.init(title: "Ok", style: style, handler: nil)
+        
+        alert.addAction(action)
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

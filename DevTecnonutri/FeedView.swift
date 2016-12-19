@@ -13,5 +13,5 @@ protocol FeedView {
     func finishLoading()
     func setFeed(items: [Item], loadMode: LoadMode)
     func setEmptyFeed()
-    func showMessage(message: String)
+    func showMessage(message: String, isError: Bool)
 }
