@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -43,8 +44,8 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.8901960784313725" green="0.8901960784313725" blue="0.88235294117647056" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conteúdo não disponível" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KI1-TT-l9d">
-                                <rect key="frame" x="69" y="321" width="237.5" height="24"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conteúdo não disponível" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KI1-TT-l9d">
+                                <rect key="frame" x="32" y="321" width="311" height="24"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" red="0.3294117647" green="0.33333333329999998" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -56,7 +57,9 @@
                             <constraint firstAttribute="trailing" secondItem="Ja1-bT-VEn" secondAttribute="trailing" id="TUq-9u-Siv"/>
                             <constraint firstItem="KI1-TT-l9d" firstAttribute="centerY" secondItem="Z14-in-Hyz" secondAttribute="centerY" id="Zc0-TI-93l"/>
                             <constraint firstItem="Ja1-bT-VEn" firstAttribute="leading" secondItem="Z14-in-Hyz" secondAttribute="leading" id="b7V-hU-DFf"/>
+                            <constraint firstItem="KI1-TT-l9d" firstAttribute="leading" secondItem="Z14-in-Hyz" secondAttribute="leadingMargin" constant="16" id="bQV-oO-cIV"/>
                             <constraint firstItem="Ja1-bT-VEn" firstAttribute="top" secondItem="Z14-in-Hyz" secondAttribute="top" id="td6-tv-PWO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KI1-TT-l9d" secondAttribute="trailing" constant="16" id="ugU-CR-qoN"/>
                             <constraint firstItem="KI1-TT-l9d" firstAttribute="centerX" secondItem="Z14-in-Hyz" secondAttribute="centerX" id="w7M-I3-eMy"/>
                         </constraints>
                     </view>

@@ -16,6 +16,7 @@ class FeedPresenter {
     private var firstLoad = true
     private var pageNumber = 0
     private var timestamp: NSNumber = 0
+    private var scrollIsOver = false
     
     init(feedService: FeedService) {
         self.feedService = feedService
@@ -30,6 +31,14 @@ class FeedPresenter {
     }
     
     func getFeeds(loadMode: LoadMode){
+        // Prevent request when feed is over
+        if(self.scrollIsOver){
+            print("Scroll is over")
+            self.feedView?.finishLoading()
+            return
+        }
+        
+        // Create a query http paramters if needed
         let params: [String: Any]?
         if(loadMode != LoadMode.refresh){
             params = ["p": self.pageNumber, "t": self.timestamp]
@@ -37,13 +46,16 @@ class FeedPresenter {
             self.pageNumber = 0;
             self.timestamp = 0
             params = nil
+            self.scrollIsOver = false
         }
         
+        // Start SVProgressHUD if it is the first load
         if(self.firstLoad){
             self.feedView?.startLoading()
             self.firstLoad = false
         }
         
+        // Fetch feeds
         feedService.getFeeds(params: params, onSuccess: { (response) -> Void in
             self.feedView?.finishLoading()
             
@@ -56,21 +68,25 @@ class FeedPresenter {
                     return Item(json: jsonItem)
                 })
                 
-                self.pageNumber += 1
-                self.timestamp = json["t"].numberValue
+                // Verify if feed is over
+                if(items.count > 0){
+                    self.pageNumber += 1
+                    self.timestamp = json["t"].numberValue
+                } else {
+                    self.scrollIsOver = true
+                }
+                // Update view
                 self.feedView?.setFeed(items: items, loadMode: loadMode)
             } else {
+                // Return empty array to reload using setFeed, in case the error happens
                 self.feedView?.setFeed(items: [], loadMode: loadMode)
                 self.feedView?.showMessage(message: "Houve um erro ao buscar o feed!", isError: true)
             }
         }, onFail: { (error) -> Void in
             self.feedView?.finishLoading()
-
-            if(error.code == NSURLErrorNotConnectedToInternet){
-                self.feedView?.showMessage(message: "Verifique sua conexão com a internet.", isError: true)
-            } else {
-                self.feedView?.showMessage(message: "Algo estranho aconteceu :(", isError: true)
-            }
+            // Return empty array to reload using setFeed
+            self.feedView?.setFeed(items: [], loadMode: loadMode)
+            self.feedView?.showMessage(message: "Algo estranho aconteceu :(", isError: true)
         })
     }
 }

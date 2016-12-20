@@ -9,18 +9,22 @@
 import UIKit
 import SVProgressHUD
 import CCBottomRefreshControl
+import ReachabilitySwift
 
 class FeedViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noFeedAvailable: UILabel!
-    
+    var reachability = Reachability()!
     let feedPresenter = FeedPresenter(feedService: FeedService())
     var feedData = [Item]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Register Observable
+        self.registerObservableForInternet()
+        
         // Setup tableView
         self.tableView.register(UINib.init(nibName: "FeedTableViewCell", bundle: nil), forCellReuseIdentifier: "FeedCell")
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -28,44 +32,62 @@ class FeedViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-        // Init refresh control
+        // Init refresh controls
         self.tableView.refreshControl = UIRefreshControl.init()
-        //self.tableView.refreshControl?.backgroundColor
-        //self.tableView.refreshControl?.tintColor
-        self.tableView.refreshControl?.addTarget(self, action: #selector(reloadDataFromServer), for: .valueChanged)
+        self.tableView.refreshControl?.addTarget(self, action: #selector(self.reloadDataFromServer), for: .valueChanged)
         self.tableView.bottomRefreshControl = UIRefreshControl.init()
-        self.tableView.bottomRefreshControl.addTarget(self, action: #selector(incrementDataFromServer), for: .valueChanged)
+        self.tableView.bottomRefreshControl.addTarget(self, action: #selector(self.incrementDataFromServer), for: .valueChanged)
         
         // Setup presenter
         feedPresenter.attachView(view: self);
-        feedPresenter.getFeeds(loadMode: LoadMode.refresh)
+        reloadDataFromServer()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.reachability = Reachability()!
+    }
+    
+    // First load or pull to refresh
     func reloadDataFromServer(){
-        self.noFeedAvailable.isHidden = true
-        feedPresenter.getFeeds(loadMode: LoadMode.refresh)
+        if(self.reachability.isReachable){
+            self.noFeedAvailable.isHidden = true
+            feedPresenter.getFeeds(loadMode: LoadMode.refresh)
+        } else {
+            self.postNotificationForInternet()
+        }
     }
     
+    // Infinite scroll
     func incrementDataFromServer(){
-        self.noFeedAvailable.isHidden = true
-        feedPresenter.getFeeds(loadMode: LoadMode.scrolling)
+        if(self.reachability.isReachable){
+            self.noFeedAvailable.isHidden = true
+            feedPresenter.getFeeds(loadMode: LoadMode.scrolling)
+        } else {
+            self.postNotificationForInternet()
+        }
     }
     
+    // Methods related with no internet
     func registerObservableForInternet(){
-        let notificationName = Notification.Name("InternetOff")
-        
-        // Register to receive notification
-        NotificationCenter.default.addObserver(self, selector: #selector(alertForInternetUnavailable), name: notificationName, object: nil)
-        
-        // Post notification
-        NotificationCenter.default.post(name: notificationName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(alertForInternetUnavailable), name: .internetOffNotification, object: nil)
+    }
+    
+    func postNotificationForInternet(){
+        NotificationCenter.default.post(name: .internetOffNotification, object: nil)
     }
     
     func alertForInternetUnavailable(){
+        self.finishLoading()
+        if(self.feedData.count == 0){
+            self.noFeedAvailable.text = "Sem conexão com a internet. Puxe para atualizar!"
+            self.noFeedAvailable.isHidden = false
+        }
+        
         self.showMessage(message: "Verifique sua conexão com a internet.", isError: true)
     }
 }
@@ -78,7 +100,6 @@ extension FeedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! FeedTableViewCell
         
-        // Configure the cell...
         let item = feedData[indexPath.row]
         cell.setupCell(item: item)
         cell.delegate = self
@@ -89,15 +110,14 @@ extension FeedViewController: UITableViewDataSource {
 
 extension FeedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if(indexPath.row == (feedData.count - 1)){
-            feedPresenter.getFeeds(loadMode: LoadMode.scrolling)
+        if(indexPath.row == (feedData.count - 2)){
             tableView.bottomRefreshControl?.beginRefreshing()
+            self.incrementDataFromServer()
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = feedData[indexPath.row]
-        print("Item clicked \(item)")
         
         let feedDetailViewController = FeedDetailViewController()
         feedDetailViewController.item = item
@@ -111,42 +131,39 @@ extension FeedViewController: FeedView {
         SVProgressHUD.show()
     }
     
+    // Dismiss all activity loaders
     func finishLoading(){
         if(SVProgressHUD.isVisible()){
             SVProgressHUD.dismiss()
         }
-        
+    
         self.tableView.refreshControl?.endRefreshing()
         self.tableView.bottomRefreshControl?.endRefreshing()
     }
     
     func setFeed(items: [Item], loadMode: LoadMode){
-        if(loadMode == LoadMode.refresh){
-            if(items.count > 0){
+        // Prevent a empty array
+        if(items.count > 0){
+            if(loadMode == LoadMode.refresh){
                 self.feedData = items
+            } else {
+                self.feedData.append(contentsOf: items)
             }
-        } else {
-            self.feedData.append(contentsOf: items)
-        }
-        
-        if(self.feedData.count == 0){
-            setEmptyFeed()
-        } else {
             self.tableView.reloadData()
+        } else {
+            setEmptyFeed()
         }
     }
     
     func setEmptyFeed(){
+        self.noFeedAvailable.text = "Conteúdo não disponível"
         self.noFeedAvailable.isHidden = false
     }
     
     func showMessage(message: String, isError: Bool){
         let alert = UIAlertController.init(title: "Tecnonutri", message: message, preferredStyle: UIAlertControllerStyle.alert)
-        
         let style: UIAlertActionStyle = isError ? .destructive : .default
-        
         let action = UIAlertAction.init(title: "Ok", style: style, handler: nil)
-        
         alert.addAction(action)
         
         self.present(alert, animated: true, completion: nil)
