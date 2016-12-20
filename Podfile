@@ -11,4 +11,5 @@ target 'DevTecnonutri' do
   pod 'YYWebImage'
   pod 'SVProgressHUD'
   pod 'CCBottomRefreshControl'
+  pod 'ReachabilitySwift', '~> 3'
 end
