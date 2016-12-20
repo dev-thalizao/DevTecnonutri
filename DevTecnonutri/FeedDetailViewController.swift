@@ -137,7 +137,7 @@ extension FeedDetailViewController: FeedDetailView {
     }
     
     func showMessage(message: String, isError: Bool){
-        let alert = AlertUtils.getAlertOnlyForOkButton(title: "Tecnonutri", message: message, isError: isError)
+        let alert = AlertUtils.getAlertOnlyForOkButton(title: "DevTecnonutri", message: message, isError: isError)
         self.present(alert, animated: true, completion: nil)
     }
 }

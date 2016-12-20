@@ -27,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="-758" y="193"/>
         </scene>
-        <!--Feed-->
+        <!--DevTecnonutri-->
         <scene sceneID="ZRm-qg-1bf">
             <objects>
                 <viewController id="iD3-re-RGq" customClass="FeedViewController" customModule="DevTecnonutri" customModuleProvider="target" sceneMemberID="viewController">
@@ -63,7 +63,7 @@
                             <constraint firstItem="KI1-TT-l9d" firstAttribute="centerX" secondItem="Z14-in-Hyz" secondAttribute="centerX" id="w7M-I3-eMy"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Feed" id="MnX-lN-OXB"/>
+                    <navigationItem key="navigationItem" title="DevTecnonutri" id="MnX-lN-OXB"/>
                     <connections>
                         <outlet property="noFeedAvailable" destination="KI1-TT-l9d" id="UX9-HF-Tn3"/>
                         <outlet property="tableView" destination="Ja1-bT-VEn" id="4Um-8h-ryn"/>
