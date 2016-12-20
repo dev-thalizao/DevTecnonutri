@@ -21,9 +21,6 @@ class FeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Register Observable
-        self.registerObservableForInternet()
         
         // Setup tableView
         self.tableView.register(UINib.init(nibName: "FeedTableViewCell", bundle: nil), forCellReuseIdentifier: "FeedCell")
@@ -47,18 +44,13 @@ class FeedViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-        self.reachability = Reachability()!
-    }
-    
     // First load or pull to refresh
     func reloadDataFromServer(){
         if(self.reachability.isReachable){
             self.noFeedAvailable.isHidden = true
             feedPresenter.getFeeds(loadMode: LoadMode.refresh)
         } else {
-            self.postNotificationForInternet()
+            self.alertForInternetUnavailable()
         }
     }
     
@@ -68,19 +60,10 @@ class FeedViewController: UIViewController {
             self.noFeedAvailable.isHidden = true
             feedPresenter.getFeeds(loadMode: LoadMode.scrolling)
         } else {
-            self.postNotificationForInternet()
+            self.alertForInternetUnavailable()
         }
     }
-    
-    // Methods related with no internet
-    func registerObservableForInternet(){
-        NotificationCenter.default.addObserver(self, selector: #selector(alertForInternetUnavailable), name: .internetOffNotification, object: nil)
-    }
-    
-    func postNotificationForInternet(){
-        NotificationCenter.default.post(name: .internetOffNotification, object: nil)
-    }
-    
+
     func alertForInternetUnavailable(){
         self.finishLoading()
         if(self.feedData.count == 0){
@@ -126,7 +109,6 @@ extension FeedViewController: UITableViewDelegate {
 }
 
 extension FeedViewController: FeedView {
-    
     func startLoading(){
         SVProgressHUD.show()
     }
@@ -136,7 +118,6 @@ extension FeedViewController: FeedView {
         if(SVProgressHUD.isVisible()){
             SVProgressHUD.dismiss()
         }
-    
         self.tableView.refreshControl?.endRefreshing()
         self.tableView.bottomRefreshControl?.endRefreshing()
     }

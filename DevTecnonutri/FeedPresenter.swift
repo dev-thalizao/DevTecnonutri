@@ -33,7 +33,6 @@ class FeedPresenter {
     func getFeeds(loadMode: LoadMode){
         // Prevent request when feed is over
         if(self.scrollIsOver){
-            print("Scroll is over")
             self.feedView?.finishLoading()
             return
         }
@@ -80,7 +79,7 @@ class FeedPresenter {
             } else {
                 // Return empty array to reload using setFeed, in case the error happens
                 self.feedView?.setFeed(items: [], loadMode: loadMode)
-                self.feedView?.showMessage(message: "Houve um erro ao buscar o feed!", isError: true)
+                self.feedView?.showMessage(message: "Houve um erro ao buscar as publicações", isError: true)
             }
         }, onFail: { (error) -> Void in
             self.feedView?.finishLoading()
