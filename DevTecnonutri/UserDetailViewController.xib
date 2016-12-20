@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserDetailViewController" customModule="DevTecnonutri" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="4TG-Qk-tFA" id="6oN-mN-BwL"/>
+                <outlet property="noFeedAvailable" destination="tV2-vF-AgM" id="rE4-Vz-nA6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -30,16 +31,25 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conteúdo não disponível" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tV2-vF-AgM">
+                    <rect key="frame" x="16" y="603" width="343" height="24"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="tV2-vF-AgM" secondAttribute="bottom" constant="40" id="Bgp-GF-WKh"/>
+                <constraint firstAttribute="trailing" secondItem="tV2-vF-AgM" secondAttribute="trailing" constant="16" id="OM2-vI-dsZ"/>
                 <constraint firstItem="4TG-Qk-tFA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eKw-Fp-B6S"/>
                 <constraint firstAttribute="bottom" secondItem="4TG-Qk-tFA" secondAttribute="bottom" id="koR-Ej-rlO"/>
                 <constraint firstItem="4TG-Qk-tFA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="tCU-De-9Bp"/>
                 <constraint firstAttribute="trailing" secondItem="4TG-Qk-tFA" secondAttribute="trailing" id="v7t-kZ-PZn"/>
+                <constraint firstItem="tV2-vF-AgM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="vo0-RD-1H4"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-            <point key="canvasLocation" x="-30" y="-333"/>
+            <point key="canvasLocation" x="-30.5" y="-333.5"/>
         </view>
     </objects>
 </document>

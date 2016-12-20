@@ -11,6 +11,7 @@ import Foundation
 protocol UserDetailView {
     func startLoading()
     func finishLoading()
+    func setEmptyFeed()
     func setUser(user: User)
-    func showMessage(message: String)
+    func showMessage(message: String, isError: Bool)
 }

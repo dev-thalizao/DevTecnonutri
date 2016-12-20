@@ -9,46 +9,38 @@
 import UIKit
 import SVProgressHUD
 import CCBottomRefreshControl
+import ReachabilitySwift
 
+// Customize collectionViewCells
 private let sectionInsets = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
 private let itemsPerRow: CGFloat = 3
 
 class UserDetailViewController: UIViewController {
     
-    let userDetailPresenter = UserDetailPresenter(userService: UserService())
-    var user: User!
-    // Work a round to get height
-//    let heightForUsernameLabel: CGFloat?
-    
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var noFeedAvailable: UILabel!
+    let userDetailPresenter = UserDetailPresenter(userService: UserService())
+    var reachability = Reachability()!
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Set navbar
-        self.navigationItem.title = user.name
-        self.navigationItem.titleView?.sizeToFit()
-        
-        let backButton = UIBarButtonItem.init(title: "", style: .plain, target: self, action: #selector(backToThePreviousViewController))
-        backButton.image = UIImage(named: "back_button")
-        backButton.tintColor = UIColor.white
-        self.navigationItem.leftBarButtonItem = backButton
+        self.setNavbar()
 
-        // Do any additional setup after loading the view.
+        // Setup collectionView
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.collectionView.register(UINib.init(nibName: "FeedCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "feedCollectionCell")
         self.collectionView.register(UINib.init(nibName: "UserHeaderCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "userHeaderCell")
         self.collectionView.refreshControl = UIRefreshControl.init()
         self.collectionView.refreshControl?.addTarget(self, action: #selector(reloadDataFromServer), for: .valueChanged)
-        
-        let bottomRefreshControl = UIRefreshControl.init()
-        bottomRefreshControl.addTarget(self, action: #selector(incrementDataFromServer), for: .valueChanged)
-        
-        self.collectionView.bottomRefreshControl = bottomRefreshControl
+        self.collectionView.bottomRefreshControl = UIRefreshControl.init()
+        self.collectionView.bottomRefreshControl.addTarget(self, action: #selector(incrementDataFromServer), for: .valueChanged)
         
         userDetailPresenter.attachView(view: self)
-        userDetailPresenter.getUserDetails(user: self.user, loadMode: LoadMode.refresh)
+        reloadDataFromServer()
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,12 +48,44 @@ class UserDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // First load or pull to refresh
     func reloadDataFromServer(){
-        userDetailPresenter.getUserDetails(user: user, loadMode: LoadMode.refresh)
+        if(self.reachability.isReachable){
+            self.noFeedAvailable.isHidden = true
+            userDetailPresenter.getUserDetails(user: user, loadMode: LoadMode.refresh)
+        } else {
+            self.alertForInternetUnavailable()
+        }
     }
     
+    // Infinite scroll
     func incrementDataFromServer(){
-        userDetailPresenter.getUserDetails(user: user, loadMode: LoadMode.scrolling)
+        if(self.reachability.isReachable){
+            self.noFeedAvailable.isHidden = true
+            userDetailPresenter.getUserDetails(user: user, loadMode: LoadMode.scrolling)
+        } else {
+            self.alertForInternetUnavailable()
+        }
+    }
+    
+    func alertForInternetUnavailable(){
+        self.finishLoading()
+        if(self.user.items.count == 0){
+            self.noFeedAvailable.text = "Sem conexão com a internet. Puxe para atualizar!"
+            self.noFeedAvailable.isHidden = false
+        }
+        
+        self.showMessage(message: "Verifique sua conexão com a internet.", isError: true)
+    }
+    
+    func setNavbar(){
+        self.navigationItem.title = user.name
+        self.navigationItem.titleView?.sizeToFit()
+        
+        let backButton = UIBarButtonItem.init(title: nil, style: .plain, target: self, action: #selector(backToThePreviousViewController))
+        backButton.image = UIImage(named: "back_button")
+        backButton.tintColor = UIColor.white
+        self.navigationItem.leftBarButtonItem = backButton
     }
     
     func backToThePreviousViewController(){
@@ -74,13 +98,18 @@ extension UserDetailViewController: UserDetailView {
         SVProgressHUD.show()
     }
     
+    // Dismiss all activity loaders
     func finishLoading(){
         if(SVProgressHUD.isVisible()){
             SVProgressHUD.dismiss()
         }
-        
         self.collectionView.refreshControl?.endRefreshing()
         self.collectionView.bottomRefreshControl?.endRefreshing()
+    }
+    
+    func setEmptyFeed() {
+        self.noFeedAvailable.text = "Conteúdo não disponível"
+        self.noFeedAvailable.isHidden = false
     }
     
     func setUser(user: User) {
@@ -88,8 +117,13 @@ extension UserDetailViewController: UserDetailView {
         self.collectionView.reloadData()
     }
     
-    func showMessage(message: String){
+    func showMessage(message: String, isError: Bool){
+        let alert = UIAlertController.init(title: "Tecnonutri", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let style: UIAlertActionStyle = isError ? .destructive : .default
+        let action = UIAlertAction.init(title: "Ok", style: style, handler: nil)
+        alert.addAction(action)
         
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
@@ -128,8 +162,8 @@ extension UserDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
         if(indexPath.row == user.items.count - 1){
-            userDetailPresenter.getUserDetails(user: self.user, loadMode: LoadMode.scrolling)
             collectionView.bottomRefreshControl?.beginRefreshing()
+            self.incrementDataFromServer()
         }
     }
     
