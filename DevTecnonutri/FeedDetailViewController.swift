@@ -8,29 +8,24 @@
 
 import UIKit
 import SVProgressHUD
+import ReachabilitySwift
 
 class FeedDetailViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     let feedDetailPresenter = FeedDetailPresenter(feedService: FeedService())
+    var reachability = Reachability()!
     var item: Item!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Set navbar
-        self.navigationItem.title = "\(item.mealType.getMealName()) de \(DateUtils.formatToPattern(date: item.date, pattern: "dd/MM/yyyy"))"
-        self.navigationItem.titleView?.sizeToFit()
+        self.setNavbar()
         
-        let backButton = UIBarButtonItem.init(title: "", style: .plain, target: self, action: #selector(backToThePreviousViewController))
-        backButton.image = UIImage(named: "back_button")
-        backButton.tintColor = UIColor.white
-        self.navigationItem.leftBarButtonItem = backButton
-        
-        // Do any additional setup after loading the view.
+        // Setup tableView
         self.tableView.register(UINib.init(nibName: "FeedTableViewCell", bundle: nil), forCellReuseIdentifier: "FeedCell")
         self.tableView.register(UINib.init(nibName: "FeedDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "feedDetailCell")
-        
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 400
         self.tableView.dataSource = self
@@ -38,13 +33,11 @@ class FeedDetailViewController: UIViewController {
         
         // Init refresh control
         self.tableView.refreshControl = UIRefreshControl.init()
-        //self.tableView.refreshControl?.backgroundColor
-        //self.tableView.refreshControl?.tintColor
-        self.tableView.refreshControl?.addTarget(self, action: #selector(reloadDataFromServer), for: .valueChanged)
+        self.tableView.refreshControl?.addTarget(self, action: #selector(self.reloadDataFromServer), for: .valueChanged)
         
         // Setup presenter
         feedDetailPresenter.attachView(view: self);
-        feedDetailPresenter.getFeed(item: self.item)
+        reloadDataFromServer()
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,12 +45,34 @@ class FeedDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func reloadDataFromServer(){
-        feedDetailPresenter.getFeed(item: self.item)
+    func setNavbar(){
+        // Change title
+        self.navigationItem.title = "\(item.mealType.getMealName()) de \(DateUtils.formatToPattern(date: item.date, pattern: "dd/MM/yyyy"))"
+        self.navigationItem.titleView?.sizeToFit()
+        
+        // Create a custom back button
+        let backButton = UIBarButtonItem.init(title: nil, style: .plain, target: self, action: #selector(backToThePreviousViewController))
+        backButton.image = UIImage(named: "back_button")
+        backButton.tintColor = UIColor.white
+        self.navigationItem.leftBarButtonItem = backButton
     }
     
     func backToThePreviousViewController(){
         _ = self.navigationController?.popViewController(animated: true)
+    }
+    
+    // First load or pull to refresh
+    func reloadDataFromServer(){
+        if(self.reachability.isReachable){
+            feedDetailPresenter.getFeed(item: self.item)
+        } else {
+            self.alertForInternetUnavailable()
+        }
+    }
+    
+    func alertForInternetUnavailable(){
+        self.finishLoading()
+        self.showMessage(message: "Verifique sua conexão com a internet.", isError: true)
     }
 }
 
@@ -77,24 +92,18 @@ extension FeedDetailViewController: UITableViewDataSource {
         if(indexPath.section == 0){
             let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! FeedTableViewCell
             
-            // Configure the cell...
             cell.setupCellForDetail(item: item)
             cell.delegate = self
-            
             return cell
         } else if(indexPath.section == 1) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "feedDetailCell", for: indexPath) as! FeedDetailTableViewCell
             
-            // Configure the cell...
             cell.setupCell(food: item.foods[indexPath.row])
-            
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "feedDetailCell", for: indexPath) as! FeedDetailTableViewCell
             
-            // Configure the cell...
             cell.setupCellForTotalNutrients(food: item.totalNutrients)
-            
             return cell
         }
     }
@@ -119,7 +128,6 @@ extension FeedDetailViewController: FeedDetailView {
         if(SVProgressHUD.isVisible()){
             SVProgressHUD.dismiss()
         }
-        
         self.tableView.refreshControl?.endRefreshing()
     }
     
@@ -128,8 +136,13 @@ extension FeedDetailViewController: FeedDetailView {
         self.tableView.reloadData()
     }
     
-    func showMessage(message: String){
+    func showMessage(message: String, isError: Bool){
+        let alert = UIAlertController.init(title: "Tecnonutri", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let style: UIAlertActionStyle = isError ? .destructive : .default
+        let action = UIAlertAction.init(title: "Ok", style: style, handler: nil)
+        alert.addAction(action)
         
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

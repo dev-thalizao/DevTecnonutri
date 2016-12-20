@@ -29,23 +29,26 @@ class FeedDetailPresenter {
     
     func getFeed(item: Item){
         
+        // Start SVProgressHUD if it is the first load
         if(self.firstLoad){
             self.feedDetailView?.startLoading()
             self.firstLoad = false
         }
 
+        // Fetch details about the selected feed
         feedService.getFeed(feedHash: item.feedHash, onSuccess: { (response) -> Void in
+            self.feedDetailView?.finishLoading()
+            
             let json = JSON(response)
             
             if(json["success"].boolValue){
                 self.feedDetailView?.setFeed(item: Item(json: json["item"]))
             } else {
-                // Error msg
+                self.feedDetailView?.showMessage(message: "Não foi possível encontrar os detalhes dessa publicação", isError: true)
             }
-            
-            self.feedDetailView?.finishLoading()
         }, onFail: { (error) -> Void in
-            // Error msg
+            self.feedDetailView?.finishLoading()
+            self.feedDetailView?.showMessage(message: "Algo estranho aconteceu :(", isError: true)
         })
     }
 }

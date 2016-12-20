@@ -12,5 +12,5 @@ protocol FeedDetailView {
     func startLoading()
     func finishLoading()
     func setFeed(item: Item)
-    func showMessage(message: String)
+    func showMessage(message: String, isError: Bool)
 }
