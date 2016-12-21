@@ -58,7 +58,7 @@ class FeedTableViewCell: UITableViewCell {
         self.mealImage.yy_setImage(with: URL(string: item.imageUrl), options: .setImageWithFadeAnimation)
         
         self.mealImage.contentMode = .scaleToFill
-        self.mealDate.text = "Data da refeição \(DateUtils.formatToPattern(date: item.date, pattern: "dd/MM/yyyy"))"
+        self.mealDate.text = "\(item.mealType.getMealName()) de \(DateUtils.formatToPattern(date: item.date, pattern: "dd/MM/yyyy"))"
         self.mealEnergy.text = "\(NumberUtils.formatNumberToHumanReadable(number: item.totalNutrients.energy)) kcal"
         self.mealStateHeight.constant = 56
     }
