@@ -144,8 +144,16 @@ extension FeedDetailViewController: FeedDetailView {
 
 extension FeedDetailViewController: FeedTableViewCellDelegate {
     func didTapProfileImage(user: User) {
-        let userDetailViewController = UserDetailViewController()
-        userDetailViewController.user = user
-        self.navigationController?.pushViewController(userDetailViewController, animated: true)
+        var arrayVC = self.navigationController?.viewControllers
+        arrayVC?.removeLast()
+        
+        if (arrayVC?.last is UserDetailViewController) {
+            _ = self.navigationController?.popViewController(animated: true)
+        } else {
+            let userDetailViewController = UserDetailViewController()
+            userDetailViewController.user = user
+            self.navigationController?.pushViewController(userDetailViewController, animated: true)
+
+        }
     }
 }
