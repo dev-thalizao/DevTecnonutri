@@ -25,7 +25,7 @@ import SwiftyJSON
 struct Food {
     let description: String
     let measure: String
-    let amount: Int
+    let amount: NSNumber
     let weight: NSNumber
     let energy: NSNumber
     let carbohydrate: NSNumber
@@ -35,7 +35,7 @@ struct Food {
     init(json: JSON){
         self.description = json["description"].stringValue
         self.measure = json["measure"].stringValue
-        self.amount = json["amount"].intValue
+        self.amount = json["amount"].numberValue
         self.weight = json["weight"].numberValue
         self.energy = json["energy"].numberValue
         self.carbohydrate = json["carbohydrate"].numberValue

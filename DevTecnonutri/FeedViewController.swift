@@ -93,7 +93,7 @@ extension FeedViewController: UITableViewDataSource {
 
 extension FeedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if(indexPath.row == (feedData.count - 2)){
+        if(indexPath.row == (feedData.count - 5)){
             tableView.bottomRefreshControl?.beginRefreshing()
             self.incrementDataFromServer()
         }

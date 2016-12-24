@@ -40,7 +40,7 @@ class FeedDetailTableViewCell: UITableViewCell {
     
     func setupCell(food: Food){
         self.descriptionLabel.text = food.description
-        self.amountLabel.text = "\(food.amount) \(food.measure) (\(NumberUtils.formatNumberToHumanReadable(number: food.weight)) g)"
+        self.amountLabel.text = "\(NumberUtils.formatNumberToHumanReadable(number: food.amount)) \(food.measure) (\(NumberUtils.formatNumberToHumanReadable(number: food.weight)) g)"
         self.energyLabel.text = "\(NumberUtils.formatNumberToHumanReadable(number: food.energy)) Kcal"
         self.carbohydrateLabel.text = "\(NumberUtils.formatNumberToHumanReadable(number: food.carbohydrate)) g"
         self.proteinLabel.text = "\(NumberUtils.formatNumberToHumanReadable(number: food.protein)) g"

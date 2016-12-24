@@ -157,7 +157,7 @@ extension UserDetailViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
-        if(indexPath.row == user.items.count - 1){
+        if(indexPath.row == user.items.count - 5){
             collectionView.bottomRefreshControl?.beginRefreshing()
             self.incrementDataFromServer()
         }
