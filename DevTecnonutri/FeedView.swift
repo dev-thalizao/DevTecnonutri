@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol FeedView {
+protocol FeedView: class {
     func startLoading()
     func finishLoading()
     func setFeed(items: [Item], loadMode: LoadMode)

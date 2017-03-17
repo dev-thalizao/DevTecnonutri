@@ -16,7 +16,7 @@ class FeedViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noFeedAvailable: UILabel!
     var reachability = Reachability()!
-    let feedPresenter = FeedPresenter(feedService: FeedService())
+    var feedPresenter: FeedPresenterContract!
     var feedData = [Item]()
     
     override func viewDidLoad() {
@@ -36,6 +36,8 @@ class FeedViewController: UIViewController {
         self.tableView.bottomRefreshControl.addTarget(self, action: #selector(self.incrementDataFromServer), for: .valueChanged)
         
         // Setup presenter
+        feedPresenter = FeedPresenter()
+        
         feedPresenter.attachView(view: self);
         reloadDataFromServer()
     }

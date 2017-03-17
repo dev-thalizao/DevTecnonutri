@@ -37,6 +37,11 @@
 		2BA829D51E020D560060AC58 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA829D41E020D560060AC58 /* Meal.swift */; };
 		2BA829D81E0217800060AC58 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA829D71E0217800060AC58 /* DateUtils.swift */; };
 		2BA829DA1E0221150060AC58 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA829D91E0221150060AC58 /* FeedView.swift */; };
+		2BC0EF781E7B0C6200C5F57B /* DevTecnonutriTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0EF771E7B0C6200C5F57B /* DevTecnonutriTests.swift */; };
+		2BC0EF811E7B0CE600C5F57B /* FeedPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0EF801E7B0CE600C5F57B /* FeedPresenterTest.swift */; };
+		2BC0EF891E7B118B00C5F57B /* FeedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0EF881E7B118B00C5F57B /* FeedInteractor.swift */; };
+		2BC0EF8D1E7B25F800C5F57B /* FeedContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0EF8C1E7B25F800C5F57B /* FeedContract.swift */; };
+		2BC0EF8F1E7B340300C5F57B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0EF8E1E7B340300C5F57B /* Router.swift */; };
 		2BCDDC011E06CF620015A574 /* FeedDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCDDC001E06CF620015A574 /* FeedDetailPresenter.swift */; };
 		2BCDDC031E06CF7B0015A574 /* LoadMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCDDC021E06CF7B0015A574 /* LoadMode.swift */; };
 		2BCDDC051E06D12C0015A574 /* FeedDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCDDC041E06D12C0015A574 /* FeedDetailView.swift */; };
@@ -46,6 +51,16 @@
 		2BE0C1021E02033900472118 /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE0C1011E02033900472118 /* FeedPresenter.swift */; };
 		EA6FC99CDDBC8F107EC7038E /* Pods_DevTecnonutri.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E97C86C084C81A810B89711 /* Pods_DevTecnonutri.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2BC0EF7A1E7B0C6200C5F57B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2B9510B31E01625E001AAEC1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2B9510BA1E01625E001AAEC1;
+			remoteInfo = DevTecnonutri;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1E97C86C084C81A810B89711 /* Pods_DevTecnonutri.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DevTecnonutri.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +97,13 @@
 		2BA829D41E020D560060AC58 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		2BA829D71E0217800060AC58 /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		2BA829D91E0221150060AC58 /* FeedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		2BC0EF751E7B0C6200C5F57B /* DevTecnonutriTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DevTecnonutriTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BC0EF771E7B0C6200C5F57B /* DevTecnonutriTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevTecnonutriTests.swift; sourceTree = "<group>"; };
+		2BC0EF791E7B0C6200C5F57B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BC0EF801E7B0CE600C5F57B /* FeedPresenterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedPresenterTest.swift; sourceTree = "<group>"; };
+		2BC0EF881E7B118B00C5F57B /* FeedInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedInteractor.swift; sourceTree = "<group>"; };
+		2BC0EF8C1E7B25F800C5F57B /* FeedContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedContract.swift; sourceTree = "<group>"; };
+		2BC0EF8E1E7B340300C5F57B /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		2BCDDC001E06CF620015A574 /* FeedDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedDetailPresenter.swift; sourceTree = "<group>"; };
 		2BCDDC021E06CF7B0015A574 /* LoadMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadMode.swift; sourceTree = "<group>"; };
 		2BCDDC041E06D12C0015A574 /* FeedDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedDetailView.swift; sourceTree = "<group>"; };
@@ -98,6 +120,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA6FC99CDDBC8F107EC7038E /* Pods_DevTecnonutri.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BC0EF721E7B0C6200C5F57B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				2B9510BD1E01625E001AAEC1 /* DevTecnonutri */,
+				2BC0EF761E7B0C6200C5F57B /* DevTecnonutriTests */,
 				2B9510BC1E01625E001AAEC1 /* Products */,
 				084846DB94258FDA2C0FD119 /* Pods */,
 				0C58F9D98C8BF98EC9366B5D /* Frameworks */,
@@ -158,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				2B9510BB1E01625E001AAEC1 /* DevTecnonutri.app */,
+				2BC0EF751E7B0C6200C5F57B /* DevTecnonutriTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -165,6 +196,7 @@
 		2B9510BD1E01625E001AAEC1 /* DevTecnonutri */ = {
 			isa = PBXGroup;
 			children = (
+				2BC0EF821E7B0D0C00C5F57B /* features */,
 				2B9510BE1E01625E001AAEC1 /* AppDelegate.swift */,
 				2B9510D11E0169F8001AAEC1 /* view */,
 				2B9510D21E016A01001AAEC1 /* presenter */,
@@ -172,6 +204,7 @@
 				2B9510E01E016D02001AAEC1 /* service */,
 				2BA829D61E0217710060AC58 /* util */,
 				2B9510D31E016A08001AAEC1 /* TargetFiles */,
+				2BC0EF8E1E7B340300C5F57B /* Router.swift */,
 			);
 			path = DevTecnonutri;
 			sourceTree = "<group>";
@@ -242,6 +275,41 @@
 			name = util;
 			sourceTree = "<group>";
 		};
+		2BC0EF761E7B0C6200C5F57B /* DevTecnonutriTests */ = {
+			isa = PBXGroup;
+			children = (
+				2BC0EF7F1E7B0C7700C5F57B /* feed */,
+				2BC0EF771E7B0C6200C5F57B /* DevTecnonutriTests.swift */,
+				2BC0EF791E7B0C6200C5F57B /* Info.plist */,
+			);
+			path = DevTecnonutriTests;
+			sourceTree = "<group>";
+		};
+		2BC0EF7F1E7B0C7700C5F57B /* feed */ = {
+			isa = PBXGroup;
+			children = (
+				2BC0EF801E7B0CE600C5F57B /* FeedPresenterTest.swift */,
+			);
+			name = feed;
+			sourceTree = "<group>";
+		};
+		2BC0EF821E7B0D0C00C5F57B /* features */ = {
+			isa = PBXGroup;
+			children = (
+				2BC0EF831E7B0D1500C5F57B /* feed */,
+			);
+			name = features;
+			sourceTree = "<group>";
+		};
+		2BC0EF831E7B0D1500C5F57B /* feed */ = {
+			isa = PBXGroup;
+			children = (
+				2BC0EF8C1E7B25F800C5F57B /* FeedContract.swift */,
+				2BC0EF881E7B118B00C5F57B /* FeedInteractor.swift */,
+			);
+			name = feed;
+			sourceTree = "<group>";
+		};
 		2BD175D91E0459E4000E1A37 /* user */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,19 +347,43 @@
 			productReference = 2B9510BB1E01625E001AAEC1 /* DevTecnonutri.app */;
 			productType = "com.apple.product-type.application";
 		};
+		2BC0EF741E7B0C6200C5F57B /* DevTecnonutriTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2BC0EF7E1E7B0C6200C5F57B /* Build configuration list for PBXNativeTarget "DevTecnonutriTests" */;
+			buildPhases = (
+				2BC0EF711E7B0C6200C5F57B /* Sources */,
+				2BC0EF721E7B0C6200C5F57B /* Frameworks */,
+				2BC0EF731E7B0C6200C5F57B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2BC0EF7B1E7B0C6200C5F57B /* PBXTargetDependency */,
+			);
+			name = DevTecnonutriTests;
+			productName = DevTecnonutriTests;
+			productReference = 2BC0EF751E7B0C6200C5F57B /* DevTecnonutriTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		2B9510B31E01625E001AAEC1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0810;
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Thales Frigo";
 				TargetAttributes = {
 					2B9510BA1E01625E001AAEC1 = {
 						CreatedOnToolsVersion = 8.1;
 						ProvisioningStyle = Automatic;
+					};
+					2BC0EF741E7B0C6200C5F57B = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 443UTBWTXG;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 2B9510BA1E01625E001AAEC1;
 					};
 				};
 			};
@@ -309,6 +401,7 @@
 			projectRoot = "";
 			targets = (
 				2B9510BA1E01625E001AAEC1 /* DevTecnonutri */,
+				2BC0EF741E7B0C6200C5F57B /* DevTecnonutriTests */,
 			);
 		};
 /* End PBXProject section */
@@ -327,6 +420,13 @@
 				2B9510C61E01625E001AAEC1 /* Assets.xcassets in Resources */,
 				2B9510C41E01625E001AAEC1 /* Main.storyboard in Resources */,
 				2B259A241E039A9500AF0762 /* FeedDetailViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BC0EF731E7B0C6200C5F57B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +490,7 @@
 				2BE0C1021E02033900472118 /* FeedPresenter.swift in Sources */,
 				2B259A2C1E03A3B300AF0762 /* Food.swift in Sources */,
 				2B2BC17B1E08D057001A257A /* AlertUtils.swift in Sources */,
+				2BC0EF8F1E7B340300C5F57B /* Router.swift in Sources */,
 				2BCDDC031E06CF7B0015A574 /* LoadMode.swift in Sources */,
 				2BA829D31E020CCA0060AC58 /* User.swift in Sources */,
 				2B1F56631E04651400800ADE /* FeedCollectionViewCell.swift in Sources */,
@@ -399,6 +500,7 @@
 				2B90517F1E0741770078C5E4 /* UserDetailPresenter.swift in Sources */,
 				2B2BC1771E08B459001A257A /* InternetOffNotification.swift in Sources */,
 				2B9510DB1E016B60001AAEC1 /* FeedViewController.swift in Sources */,
+				2BC0EF891E7B118B00C5F57B /* FeedInteractor.swift in Sources */,
 				2B259A231E039A9500AF0762 /* FeedDetailViewController.swift in Sources */,
 				2B259A201E03854F00AF0762 /* Endpoint.swift in Sources */,
 				2BCDDC051E06D12C0015A574 /* FeedDetailView.swift in Sources */,
@@ -413,10 +515,28 @@
 				2B9051811E0741D40078C5E4 /* UserDetailView.swift in Sources */,
 				2BA829CF1E020A4B0060AC58 /* FeedService.swift in Sources */,
 				2B1F565B1E045EFF00800ADE /* UserHeaderCollectionReusableView.swift in Sources */,
+				2BC0EF8D1E7B25F800C5F57B /* FeedContract.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BC0EF711E7B0C6200C5F57B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BC0EF811E7B0CE600C5F57B /* FeedPresenterTest.swift in Sources */,
+				2BC0EF781E7B0C6200C5F57B /* DevTecnonutriTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2BC0EF7B1E7B0C6200C5F57B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2B9510BA1E01625E001AAEC1 /* DevTecnonutri */;
+			targetProxy = 2BC0EF7A1E7B0C6200C5F57B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2B9510C21E01625E001AAEC1 /* Main.storyboard */ = {
@@ -557,6 +677,38 @@
 			};
 			name = Release;
 		};
+		2BC0EF7C1E7B0C6200C5F57B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				DEVELOPMENT_TEAM = 443UTBWTXG;
+				INFOPLIST_FILE = DevTecnonutriTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.thalesfrigo.DevTecnonutriTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DevTecnonutri.app/DevTecnonutri";
+			};
+			name = Debug;
+		};
+		2BC0EF7D1E7B0C6200C5F57B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				DEVELOPMENT_TEAM = 443UTBWTXG;
+				INFOPLIST_FILE = DevTecnonutriTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.thalesfrigo.DevTecnonutriTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DevTecnonutri.app/DevTecnonutri";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -574,6 +726,15 @@
 			buildConfigurations = (
 				2B9510CE1E01625E001AAEC1 /* Debug */,
 				2B9510CF1E01625E001AAEC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2BC0EF7E1E7B0C6200C5F57B /* Build configuration list for PBXNativeTarget "DevTecnonutriTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2BC0EF7C1E7B0C6200C5F57B /* Debug */,
+				2BC0EF7D1E7B0C6200C5F57B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

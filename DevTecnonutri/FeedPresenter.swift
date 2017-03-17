@@ -9,17 +9,20 @@
 import Foundation
 import SwiftyJSON
 
-class FeedPresenter {
+class FeedPresenter: FeedPresenterContract, FeedInteractorOutputContract {
     
-    private let feedService: FeedService
-    private var feedView: FeedView?
+    private weak var feedView: FeedView?
+    var feedInteractor: FeedInteractorContract?
+    var wireframe: FeedWirameContract?
+    
     private var firstLoad = true
     private var pageNumber = 0
     private var timestamp: NSNumber = 0
     private var scrollIsOver = false
     
-    init(feedService: FeedService) {
-        self.feedService = feedService
+    init() {
+        self.feedInteractor = FeedInteractor()
+        self.feedInteractor?.attachOutput(output: self)
     }
     
     func attachView(view: FeedView){
@@ -54,38 +57,26 @@ class FeedPresenter {
             self.firstLoad = false
         }
         
-        // Fetch feeds
-        feedService.getFeeds(params: params, onSuccess: { (response) -> Void in
-            self.feedView?.finishLoading()
-            
-            // Parse json
-            let json = JSON(response)
-            
-            if(json["success"].boolValue){
-                // parse items
-                let items = json["items"].arrayValue.map({ (jsonItem) -> Item in
-                    return Item(json: jsonItem)
-                })
-                
-                // Verify if feed is over
-                if(items.count > 0){
-                    self.pageNumber += 1
-                    self.timestamp = json["t"].numberValue
-                } else {
-                    self.scrollIsOver = true
-                }
-                // Update view
-                self.feedView?.setFeed(items: items, loadMode: loadMode)
-            } else {
-                // Return empty array to reload using setFeed, in case the error happens
-                self.feedView?.setFeed(items: [], loadMode: loadMode)
-                self.feedView?.showMessage(message: "Houve um erro ao buscar as publicações", isError: true)
-            }
-        }, onFail: { (error) -> Void in
-            self.feedView?.finishLoading()
-            // Return empty array to reload using setFeed
-            self.feedView?.setFeed(items: [], loadMode: loadMode)
-            self.feedView?.showMessage(message: "Algo estranho aconteceu :(", isError: true)
-        })
+        feedInteractor?.getFeeds(loadMode: loadMode, params: params)
+    }
+    
+    func foundFeeds(feeds: [Item], timestamp: NSNumber, loadMode: LoadMode) {
+        self.feedView?.finishLoading()
+        // Verify if feed is over
+        if(feeds.count > 0){
+            self.pageNumber += 1
+            self.timestamp = timestamp
+        } else {
+            self.scrollIsOver = true
+        }
+        // Update view
+        self.feedView?.setFeed(items: feeds, loadMode: loadMode)
+    }
+    
+    func errorOnGetFeeds(loadMode: LoadMode, message: String){
+        self.feedView?.finishLoading()
+        // Return empty array to reload using setFeed
+        self.feedView?.setFeed(items: [], loadMode: loadMode)
+        self.feedView?.showMessage(message: message, isError: true)
     }
 }
